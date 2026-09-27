@@ -1,121 +1,115 @@
 # Pioneer Telnet AVR
 
-Dein Pioneer-Receiver spricht Telnet? Diese Integration findet ihn im Netzwerk
-und macht Eingänge, Lautstärke, Listening Modes und weitere Funktionen in
-Home Assistant und für Apple HomeKit verfügbar.
-Die Home-Assistant-Integration ist darauf ausgelegt, auch bei Verbindungsproblemen möglichst
-zuverlässig weiterzulaufen und sich selbst wieder mit dem Receiver zu verbinden.
+[Deutsch](README-DE.md)
 
-## Kompatibilität
+Does your Pioneer receiver support Telnet? This Home Assistant integration
+finds it on your network and makes inputs, volume, listening modes, and other
+functions available in Home Assistant and Apple HomeKit. It is designed to
+keep working through connection problems and reconnect to the receiver
+automatically.
 
-Nicht jeder Pioneer-Receiver unterstützt Telnet. Diese Integration ist für
-Modelle gedacht, die **Pioneer-Telnet-Befehle** verstehen, etwa VSX-922,
-VSX-923 oder VSX-527. Neuere Modelle können stattdessen ein anderes Protokoll
-wie ISCP verwenden; beispielsweise ist ein VSX-LX304 nicht für diese
-Integration geeignet. Entscheidend ist das unterstützte Protokoll, nicht
-allein der Modellname. Eine manuelle IP-Adresse kann fehlende
-Telnet-Unterstützung nicht ersetzen.
+## Compatibility
 
-## Receiver hinzufügen
+Not every Pioneer receiver supports Telnet. This integration is intended for
+models that understand **Pioneer Telnet commands**, such as the VSX-922,
+VSX-923, and VSX-527. Newer models may use a different protocol such as ISCP;
+the VSX-LX304, for example, is not suitable for this integration. What matters
+is the supported protocol, not just the model name. Entering an IP address
+manually cannot add Telnet support to a receiver.
 
-Füge **Pioneer Telnet AVR** unter **Einstellungen → Geräte & Dienste →
-Integration hinzufügen** hinzu. Die Integration sucht dann nach deinem
-Receiver; bei mehreren Treffern wählst du den gewünschten aus. Home Assistant
-kann dir den Receiver auch bereits als gefundene Integration vorschlagen.
-Falls die Suche nichts findet, kannst du ihn mit seinem Hostnamen oder seiner
-IP-Adresse hinzufügen.
+## Add a receiver
 
-![Receiver in der Netzwerksuche auswählen](docs/images/receiver-auswahl.png)
+In Home Assistant, go to **Settings → Devices & services → Add integration**
+and add **Pioneer Telnet AVR**. The integration searches for your receiver. If
+it finds several, select the one you want. Home Assistant may also suggest a
+receiver it has discovered. If the search finds nothing, you can enter its
+hostname or IP address manually.
 
-Bei der Einrichtung entscheidest du pro Receiver, ob sein Name auch an den
-Namen der Schalter angehängt wird. Danach kannst du das Gerät einem Bereich
-zuordnen.
+![Select a receiver discovered on the network](docs/images/receiver-auswahl.png)
 
-![Receiver benennen und einem Bereich zuordnen](docs/images/receiver-zuordnen.png)
+During setup, choose for each receiver whether its name should be appended to
+the names of its switches. You can then assign the device to an area.
 
-## Einrichtung
+![Name the receiver and assign it to an area](docs/images/receiver-zuordnen.png)
 
-Über **Konfigurieren** legst du fest, welche Eingänge als eigene Schalter
-erscheinen und welche zusätzlichen Funktionen du verwenden möchtest. Die
-Einstellungen erläutern die einzelnen Optionen direkt im Config-Panel.
-Beispielsweise kannst du bis zu fünf Eingänge als eigene Schalter anlegen,
-den Listening-Mode-Schalter aktivieren und die zusätzliche Volume-Lampe
-einschalten. Die Option **Zusätzliche Entitäten in Home Assistant anzeigen und
-HomeKit Bridge verwenden** bestimmt, wo diese drei Arten von Zusatzgeräten
-erscheinen. Sie ist standardmässig ausgeschaltet: Dann landen sie ausschliesslich
-in der gemeinsamen Pioneer-HomeKit-Bridge. Aktivierst du sie, erscheinen sie
-in Home Assistant und können über dessen HomeKit Bridge veröffentlicht werden.
-Der Schalter **Telnet connection** hat eine eigene Checkbox und bleibt
-standardmässig in Home Assistant. Deaktivierst du sie, erscheint dieser
-Schalter stattdessen in der gemeinsamen Pioneer-Bridge.
+## Configuration
 
-![Beispiel der Receiver-Einstellungen](docs/images/einstellungen.png)
+Open **Configure** to choose which inputs become individual switches and which
+additional functions you want. The configuration panel explains each option.
+For example, you can create switches for up to five inputs, enable the
+listening mode switch, and add the separate volume light.
 
-Die Bilder zeigen einen Teststand der Oberfläche. Einzelne Optionsnamen und
-Beschreibungen können sich in neueren Versionen unterscheiden.
+The **Show additional entities in Home Assistant and use HomeKit Bridge**
+option controls where these three types of additional devices appear. It is
+off by default: the devices are then available only through the shared Pioneer
+HomeKit bridge. When enabled, they appear in Home Assistant and can be exposed
+through Home Assistant's HomeKit Bridge. The **Telnet connection** switch has
+its own checkbox and appears in Home Assistant by default. Turn that option
+off to include the switch in the Pioneer bridge instead.
 
-## Bedienung in Home Assistant
+![Example of the receiver configuration](docs/images/einstellungen.png)
 
-Am Receiver-Gerät findest du den Media-Player und Sensoren für Eingang,
-Display, Listening Mode und Lautstärke. Zusätzliche Eingangs- und
-Listening-Mode-Schalter sowie die einzelne Volume-Lampe sind hier nur sichtbar,
-wenn du die entsprechende Checkbox aktivierst. Öffnest du den
-Media-Player, kannst du die Lautstärke und den Eingang ändern; die Listening
-Modes stehen ebenfalls in der Auswahl.
+The screenshots show a test version of the interface. Option names and
+descriptions may differ in newer versions.
 
-![Receiver mit Schaltern und Sensoren](docs/images/receiver-und-sensoren.png)
+## Use the receiver in Home Assistant
 
-![Media-Player-Steuerung](docs/images/receiver-steuerung.png)
+The receiver device includes a media player and sensors for the active input,
+display, listening mode, and volume. Individual input and listening mode
+switches and the separate volume light appear here only if you enable the
+corresponding option. In the media player, you can change the volume and input
+and select a listening mode.
 
-![Listening Modes im Media-Player auswählen](docs/images/listening-modes.png)
+![Receiver with switches and sensors](docs/images/receiver-und-sensoren.png)
 
-## Geräte in Apple Home einrichten
+![Media player controls](docs/images/receiver-steuerung.png)
 
-Die Integration stellt **eine gemeinsame Pioneer-HomeKit-Bridge** für alle
-eingerichteten Receiver bereit. Sie enthält die aktivierten TVs und, solange
-die Checkbox für zusätzliche HA-Entitäten ausgeschaltet ist, auch deren
-Eingangsschalter, Listening-Mode-Schalter und einzelne Volume-Lampe.
-Für Zusatzgeräte in Home Assistant kannst du ergänzend die **HomeKit Bridge
-von Home Assistant** verwenden:
+![Select listening modes in the media player](docs/images/listening-modes.png)
 
-1. Öffne die Benachrichtigung **Pioneer HomeKit Bridge** in Home Assistant und
-   kopple sie mit ihrem QR-Code in Apple Home. **Ein QR-Code genügt** für alle
-   aktivierten Pioneer-TVs und direkten Zusatzgeräte, auch bei mehreren
-   Receivern. Die Kanal-Auswahl der TVs bleibt in Apple Home verfügbar.
-2. Wenn du **Zusätzliche Entitäten in Home Assistant anzeigen und HomeKit Bridge
-   verwenden** aktiviert hast, füge die HA-Integration **HomeKit Bridge** hinzu,
-   wähle dort die gewünschten Eingangsschalter, die einzelne Volume-Lampe und
-   den Listening-Mode-Schalter aus und kopple auch diese HA-Bridge. Diese
-   Zusatzgeräte erscheinen dann nicht nochmals in der Pioneer-Bridge.
-   Den Telnet-connection-Schalter kannst du unabhängig davon in Home Assistant
-   belassen oder direkt über die Pioneer-Bridge veröffentlichen.
-3. Schliesse den normalen Receiver-Media-Player in der HA HomeKit Bridge aus,
-   falls das Pioneer-Haupt-TV aktiviert ist. Sonst erscheint derselbe Receiver
-   zusätzlich als zweites TV-Gerät.
+## Set up devices in Apple Home
 
-**Umstieg von früheren Versionen:** Entferne die bisher einzeln gekoppelten
-Pioneer-TVs aus Apple Home und kopple stattdessen die gemeinsame Pioneer-Bridge.
-Ihre neuen HomeKit-Gerätekennungen lassen sich nicht aus den alten
-Einzelkopplungen übernehmen. Die HA HomeKit Bridge bleibt bestehen, wenn du
-sie für andere HA-Geräte verwendest.
+The integration provides **one shared Pioneer HomeKit bridge** for all
+configured receivers. It contains the enabled TV devices and, when the option
+to show additional entities in Home Assistant is off, their input switches,
+listening mode switches, and separate volume lights. You can also use **Home
+Assistant's HomeKit Bridge** for additional devices exposed in Home Assistant:
 
-Der Ein/Aus-Status des Listening-Mode-TVs und des MCACC-TVs folgt dem Receiver.
-Der Power-Knopf dieser beiden TVs schaltet den Receiver nicht aus; die Anzeige
-kehrt zu seinem tatsächlichen Status zurück. Wenn du den Listening-Mode-Schalter
-beim Receiver anzeigen lässt, wird er zusätzlich mit dem Haupt-TV in der Pioneer-Bridge
-verknüpft, sofern dieses aktiviert ist.
+1. Open the **Pioneer HomeKit Bridge** notification in Home Assistant and pair
+   the bridge with Apple Home using its QR code. **One QR code is enough** for
+   all enabled Pioneer TVs and directly exposed additional devices, even with
+   several receivers. You can select which TV channels appear in Apple Home.
+2. If you enabled **Show additional entities in Home Assistant and use HomeKit
+   Bridge**, add Home Assistant's **HomeKit Bridge** integration. Select the
+   input switches, separate volume light, and listening mode switch you want,
+   then pair that bridge as well. These devices do not also appear in the
+   Pioneer bridge. Independently, the Telnet connection switch can remain in
+   Home Assistant or be exposed through the Pioneer bridge.
+3. If the main Pioneer TV is enabled, exclude the receiver's regular media
+   player from Home Assistant's HomeKit Bridge. Otherwise the receiver will
+   appear as a second TV device.
 
-Für die Lautstärke-Lampe und die Eingangsschalter empfiehlt sich in Apple Home
-ein eigener Raum für den Receiver. So werden sie bei Befehlen wie „Alle Lichter
-im Wohnzimmer ausschalten“ nicht versehentlich mit den Raumlichtern geschaltet.
+**Upgrading from earlier versions:** Remove the Pioneer TVs that were paired
+individually from Apple Home and pair the shared Pioneer bridge instead. Their
+new HomeKit identifiers cannot be carried over from the individual pairings.
+Your Home Assistant HomeKit Bridge can stay if you use it for other devices.
 
-## Verbindung
+The listening mode and MCACC TVs follow the receiver's power state. Pressing
+the power button on either TV does not turn the receiver off; the display
+returns to its actual state. If you choose to show the listening mode switch
+with the receiver, it is also linked to the main TV in the Pioneer bridge when
+that TV is enabled.
 
-Bei einem Verbindungsabbruch versucht die Integration selbstständig, den
-Receiver wiederzufinden und die Verbindung erneut aufzubauen.
+Consider placing the volume light and input switches in a separate room in
+Apple Home. This prevents commands such as “turn off all lights in the living
+room” from controlling them accidentally.
 
-Quellcode und Fehlermeldungen: [GitHub – pioneer-telnet-avr](https://github.com/holuspokus/pioneer-telnet-avr).
+## Connection
 
-## Lizenz
+If the connection drops, the integration tries to find the receiver and
+reconnect automatically.
 
-Dieses Projekt steht unter der [ISC-Lizenz](LICENSE).
+Source code and issues: [GitHub – pioneer-telnet-avr](https://github.com/holuspokus/pioneer-telnet-avr).
+
+## License
+
+This project is licensed under the [ISC License](LICENSE).
