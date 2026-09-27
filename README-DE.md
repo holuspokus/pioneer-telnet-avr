@@ -16,6 +16,12 @@ Integration geeignet. Entscheidend ist das unterstützte Protokoll, nicht
 allein der Modellname. Eine manuelle IP-Adresse kann fehlende
 Telnet-Unterstützung nicht ersetzen.
 
+## Installation mit HACS
+
+Öffne in HACS **Benutzerdefinierte Repositories**, füge
+`https://github.com/holuspokus/pioneer-telnet-avr` als **Integration** hinzu und
+lade sie herunter. Starte Home Assistant neu, bevor du den Receiver hinzufügst.
+
 ## Receiver hinzufügen
 
 Füge **Pioneer Telnet AVR** unter **Einstellungen → Geräte & Dienste →

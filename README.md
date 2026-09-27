@@ -17,6 +17,12 @@ the VSX-LX304, for example, is not suitable for this integration. What matters
 is the supported protocol, not just the model name. Entering an IP address
 manually cannot add Telnet support to a receiver.
 
+## Installation with HACS
+
+In HACS, open **Custom repositories**, add
+`https://github.com/holuspokus/pioneer-telnet-avr` as an **Integration**, and
+download it. Restart Home Assistant before adding the receiver below.
+
 ## Add a receiver
 
 In Home Assistant, go to **Settings → Devices & services → Add integration**

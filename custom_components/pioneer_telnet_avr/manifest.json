@@ -3,6 +3,7 @@
   "name": "Pioneer Telnet AVR",
   "version": "0.1.56",
   "documentation": "https://github.com/holuspokus/pioneer-telnet-avr",
+  "issue_tracker": "https://github.com/holuspokus/pioneer-telnet-avr/issues",
   "integration_type": "device",
   "iot_class": "local_push",
   "config_flow": true,
