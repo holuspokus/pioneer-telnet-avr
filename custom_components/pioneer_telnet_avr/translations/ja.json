@@ -1,0 +1,293 @@
+{
+  "config": {
+    "error": {
+      "cannot_connect": "レシーバーの Telnet ポートに接続できません。"
+    },
+    "step": {
+      "choose": {
+        "title": "Pioneer レシーバーを選択",
+        "data": {
+          "receiver": "Receiver",
+          "showReceiverNameInSwitches": "エンティティ名にレシーバー名を表示"
+        },
+        "description": "追加するレシーバーを選択します。",
+        "data_description": {
+          "showReceiverNameInSwitches": "このレシーバーのすべてのエンティティ名にレシーバー名を含めます。例：「Apple TV」ではなく「Apple TV VSX-923」。無効にすると名前は短くなりますが、レシーバー本体の名前は変わりません。"
+        }
+      },
+      "manual": {
+        "title": "レシーバーを手動で追加",
+        "data": {
+          "host": "Host",
+          "port": "Telnet port",
+          "showReceiverNameInSwitches": "エンティティ名にレシーバー名を表示"
+        },
+        "description": "別のレシーバーのアドレスを入力し、スイッチ名にレシーバー名を表示するか選択します。",
+        "data_description": {
+          "showReceiverNameInSwitches": "このレシーバーのすべてのエンティティ名にレシーバー名を含めます。例：「Apple TV」ではなく「Apple TV VSX-923」。無効にすると名前は短くなりますが、レシーバー本体の名前は変わりません。"
+        }
+      },
+      "discovery_confirm": {
+        "title": "{name} を追加しますか？",
+        "description": "追加する前に、スイッチ名にレシーバー名を表示するか選択します。",
+        "data": {
+          "showReceiverNameInSwitches": "エンティティ名にレシーバー名を表示"
+        },
+        "data_description": {
+          "showReceiverNameInSwitches": "このレシーバーのすべてのエンティティ名にレシーバー名を含めます。例：「Apple TV」ではなく「Apple TV VSX-923」。無効にすると名前は短くなりますが、レシーバー本体の名前は変わりません。"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "レシーバーは設定済みです。",
+      "cannot_connect": "レシーバーの Telnet ポートに接続できません。"
+    }
+  },
+  "options": {
+    "error": {
+      "too_many_inputs": "入力は最大5つまで選択してください。",
+      "invalid_listening_mode": "モード ID は4桁の数字にしてください。"
+    },
+    "step": {
+      "init": {
+        "title": "Pioneer レシーバーの設定",
+        "sections": {
+          "inputs": {
+            "name": "入力",
+            "data": {
+              "input_switches": "入力を個別のスイッチにする",
+              "toggleOffIfActive": "選択中の入力を再度押すと電源オフ",
+              "hidden_zone_inputs": "ゾーンのTVから入力を非表示"
+            },
+            "data_description": {
+              "input_switches": "最大5つの入力をそれぞれ個別のスイッチとして表示します。",
+              "toggleOffIfActive": "現在の入力をもう一度押すとレシーバーの電源が切れます（個別のスイッチとして作成した入力のみ）。",
+              "hidden_zone_inputs": "ゾーンのTVに表示しない入力を選択します。メインのレシーバーにはすべての入力が残ります。"
+            }
+          },
+          "listening_modes": {
+            "name": "リスニングモード",
+            "data": {
+              "toggleListeningMode": "リスニングモードのスイッチを作成",
+              "toggleListeningModeLink": "リスニングモードをレシーバーにまとめる",
+              "listeningMode": "主リスニングモード",
+              "listeningModeOther": "代替リスニングモード",
+              "listeningModeFallback": "フォールバックモード",
+              "listelingmodesAsTV": "リスニングモード用の追加テレビ",
+              "onlyLearnedListeningModes": "10種類確認後は学習したモードに制限",
+              "resetListeningModes": "保存時にリスニングモード一覧をリセット",
+              "excluded_listening_modes": "リスニングモードを除外"
+            },
+            "data_description": {
+              "toggleListeningMode": "リスニングモードのスイッチを作成.",
+              "toggleListeningModeLink": "有効な場合、リスニングモードスイッチを共通の Pioneer ブリッジのメイン TV にリンクします。",
+              "listeningMode": "主リスニングモード.",
+              "listeningModeOther": "代替リスニングモード.",
+              "listeningModeFallback": "フォールバックモード.",
+              "listelingmodesAsTV": "リスニングモード用の独立した HomeKit TV を作成します。チャンネルは「ホーム」アプリで選択でき、Home Assistant に追加の TV は表示されません。",
+              "onlyLearnedListeningModes": "確認済みのモードが 10 個以上になると、この設定は Home Assistant のレシーバーのサウンドモードを確認済みモードと標準値に限定します。HomeKit TV では引き続きすべてのモードを手動で選べます。保存後に設定を開き直すと、3 つの選択リストが更新されます。",
+              "resetListeningModes": "保存時に自動学習したモードを一度消去します。HomeKit チャンネルの手動表示設定は維持されます。",
+              "excluded_listening_modes": "E06 が2回返るとモードを自動的に除外します。ここで手動で除外したり、選択を解除して復元したりできます。Home Assistant では表示されず、Apple Home ではチャンネルを残したまま非表示にします。"
+            }
+          },
+          "homekit": {
+            "name": "HomeKit とエンティティ",
+            "data": {
+              "homekitLinkedVolume": "音量ライトを連携したHomeKitテレビを作成",
+              "volumeAsLight": "音量をライトとしても表示",
+              "additionalEntitiesInHa": "追加エンティティを Home Assistant に表示して HomeKit Bridge を使用"
+            },
+            "data_description": {
+              "homekitLinkedVolume": "共通の Pioneer ブリッジに音量ライト付き TV を作成します。ブリッジ全体のペアリングコードは一つです。",
+              "volumeAsLight": "独立した音量ライトを作成します。新しい設定で Home Assistant または共通の Pioneer ブリッジへの表示先を選べます。",
+              "additionalEntitiesInHa": "個別の入力スイッチ、独立した音量ライト、リスニングモードスイッチを Home Assistant に表示し、HomeKit Bridge で公開できます。無効の場合は共通の Pioneer HomeKit ブリッジのみに表示されます。"
+            }
+          },
+          "volume_zones": {
+            "name": "音量とゾーン",
+            "data": {
+              "minVolume": "最小音量",
+              "maxVolume": "最大音量",
+              "zoneControl": "ゾーン制御を有効化"
+            },
+            "data_description": {
+              "minVolume": "音量ライトの最小音量.",
+              "maxVolume": "音量ライトの最大音量.",
+              "zoneControl": "ゾーン制御を有効化."
+            }
+          },
+          "receiver_features": {
+            "name": "その他のレシーバー機能",
+            "data": {
+              "audioInfo": "音声情報を表示",
+              "videoInfo": "映像情報を表示",
+              "toneControls": "トーン・低音・高音を制御",
+              "mcaccControl": "MCACC を個別のテレビにする",
+              "phaseControl": "位相を制御",
+              "virtualSurroundBack": "バーチャルサラウンドバックを制御",
+              "channelLevels": "チャンネルレベルを制御",
+              "tunerControl": "チューナーを制御",
+              "hidden_mcacc_memories": "TVからMCACCメモリーを非表示"
+            },
+            "data_description": {
+              "audioInfo": "音声情報を表示. Telnet で対応する応答がある場合のみ作成します。",
+              "videoInfo": "映像情報を表示. Telnet で対応する応答がある場合のみ作成します。",
+              "toneControls": "トーン・低音・高音を制御. Telnet で対応する応答がある場合のみ作成します。",
+              "mcaccControl": "MCACC メモリー 1～6 を選択可能なチャンネルとする独立した HomeKit TV を作成します。Home Assistant に追加の TV は表示されません。",
+              "phaseControl": "Off、On、Full Band を個別のテレビのチャンネルにします。",
+              "virtualSurroundBack": "バーチャルサラウンドバックを制御. Telnet で対応する応答がある場合のみ作成します。",
+              "channelLevels": "チャンネルレベルを制御. Telnet で対応する応答がある場合のみ作成します。",
+              "tunerControl": "チューナーを制御. Telnet で対応する応答がある場合のみ作成します。",
+              "hidden_mcacc_memories": "TVに表示しないMCACCメモリーを選択します。"
+            }
+          },
+          "connection": {
+            "name": "接続",
+            "data": {
+              "telnetSwitch": "Telnet 接続スイッチを作成",
+              "maxReconnectAttempts": "最大再接続回数",
+              "maxReconnectAttemptsBeforeDiscover": "再検出までの失敗回数",
+              "sendKeepAliveTimeoutMinutes": "電源オフ後の接続維持時間（分）",
+              "telnetSwitchInHa": "Telnet 接続スイッチを Home Assistant に表示"
+            },
+            "data_description": {
+              "telnetSwitch": "Telnet 接続スイッチを作成.",
+              "maxReconnectAttempts": "最大再接続回数.",
+              "maxReconnectAttemptsBeforeDiscover": "再検出までの失敗回数.",
+              "sendKeepAliveTimeoutMinutes": "電源オフ後の接続維持時間（分）.",
+              "telnetSwitchInHa": "有効にすると Telnet 接続スイッチが Home Assistant に表示されます。無効にすると共通の Pioneer HomeKit ブリッジのみに表示されます。"
+            }
+          },
+          "input_names": {
+            "name": "入力名の変更",
+            "data": {
+              "input_name_01": "レシーバー上の入力名を変更します（最大14文字）。 01",
+              "input_name_02": "レシーバー上の入力名を変更します（最大14文字）。 02",
+              "input_name_03": "レシーバー上の入力名を変更します（最大14文字）。 03",
+              "input_name_04": "レシーバー上の入力名を変更します（最大14文字）。 04",
+              "input_name_05": "レシーバー上の入力名を変更します（最大14文字）。 05",
+              "input_name_06": "レシーバー上の入力名を変更します（最大14文字）。 06",
+              "input_name_07": "レシーバー上の入力名を変更します（最大14文字）。 07",
+              "input_name_08": "レシーバー上の入力名を変更します（最大14文字）。 08",
+              "input_name_09": "レシーバー上の入力名を変更します（最大14文字）。 09",
+              "input_name_10": "レシーバー上の入力名を変更します（最大14文字）。 10",
+              "input_name_11": "レシーバー上の入力名を変更します（最大14文字）。 11",
+              "input_name_12": "レシーバー上の入力名を変更します（最大14文字）。 12",
+              "input_name_13": "レシーバー上の入力名を変更します（最大14文字）。 13",
+              "input_name_14": "レシーバー上の入力名を変更します（最大14文字）。 14",
+              "input_name_15": "レシーバー上の入力名を変更します（最大14文字）。 15",
+              "input_name_16": "レシーバー上の入力名を変更します（最大14文字）。 16",
+              "input_name_17": "レシーバー上の入力名を変更します（最大14文字）。 17",
+              "input_name_18": "レシーバー上の入力名を変更します（最大14文字）。 18",
+              "input_name_19": "レシーバー上の入力名を変更します（最大14文字）。 19",
+              "input_name_20": "レシーバー上の入力名を変更します（最大14文字）。 20",
+              "input_name_21": "レシーバー上の入力名を変更します（最大14文字）。 21",
+              "input_name_22": "レシーバー上の入力名を変更します（最大14文字）。 22",
+              "input_name_23": "レシーバー上の入力名を変更します（最大14文字）。 23",
+              "input_name_24": "レシーバー上の入力名を変更します（最大14文字）。 24",
+              "input_name_25": "レシーバー上の入力名を変更します（最大14文字）。 25",
+              "input_name_26": "レシーバー上の入力名を変更します（最大14文字）。 26",
+              "input_name_27": "レシーバー上の入力名を変更します（最大14文字）。 27",
+              "input_name_28": "レシーバー上の入力名を変更します（最大14文字）。 28",
+              "input_name_29": "レシーバー上の入力名を変更します（最大14文字）。 29",
+              "input_name_30": "レシーバー上の入力名を変更します（最大14文字）。 30",
+              "input_name_31": "レシーバー上の入力名を変更します（最大14文字）。 31",
+              "input_name_32": "レシーバー上の入力名を変更します（最大14文字）。 32",
+              "input_name_33": "レシーバー上の入力名を変更します（最大14文字）。 33",
+              "input_name_34": "レシーバー上の入力名を変更します（最大14文字）。 34",
+              "input_name_35": "レシーバー上の入力名を変更します（最大14文字）。 35",
+              "input_name_36": "レシーバー上の入力名を変更します（最大14文字）。 36",
+              "input_name_37": "レシーバー上の入力名を変更します（最大14文字）。 37",
+              "input_name_38": "レシーバー上の入力名を変更します（最大14文字）。 38",
+              "input_name_39": "レシーバー上の入力名を変更します（最大14文字）。 39",
+              "input_name_40": "レシーバー上の入力名を変更します（最大14文字）。 40",
+              "input_name_41": "レシーバー上の入力名を変更します（最大14文字）。 41",
+              "input_name_42": "レシーバー上の入力名を変更します（最大14文字）。 42",
+              "input_name_43": "レシーバー上の入力名を変更します（最大14文字）。 43",
+              "input_name_44": "レシーバー上の入力名を変更します（最大14文字）。 44",
+              "input_name_45": "レシーバー上の入力名を変更します（最大14文字）。 45",
+              "input_name_46": "レシーバー上の入力名を変更します（最大14文字）。 46",
+              "input_name_47": "レシーバー上の入力名を変更します（最大14文字）。 47",
+              "input_name_48": "レシーバー上の入力名を変更します（最大14文字）。 48",
+              "input_name_49": "レシーバー上の入力名を変更します（最大14文字）。 49",
+              "input_name_50": "レシーバー上の入力名を変更します（最大14文字）。 50",
+              "input_name_51": "レシーバー上の入力名を変更します（最大14文字）。 51",
+              "input_name_52": "レシーバー上の入力名を変更します（最大14文字）。 52",
+              "input_name_53": "レシーバー上の入力名を変更します（最大14文字）。 53",
+              "input_name_54": "レシーバー上の入力名を変更します（最大14文字）。 54",
+              "input_name_55": "レシーバー上の入力名を変更します（最大14文字）。 55",
+              "input_name_56": "レシーバー上の入力名を変更します（最大14文字）。 56",
+              "input_name_57": "レシーバー上の入力名を変更します（最大14文字）。 57",
+              "input_name_58": "レシーバー上の入力名を変更します（最大14文字）。 58",
+              "input_name_59": "レシーバー上の入力名を変更します（最大14文字）。 59",
+              "input_name_60": "レシーバー上の入力名を変更します（最大14文字）。 60"
+            },
+            "data_description": {
+              "input_name_01": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_02": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_03": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_04": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_05": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_06": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_07": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_08": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_09": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_10": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_11": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_12": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_13": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_14": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_15": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_16": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_17": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_18": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_19": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_20": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_21": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_22": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_23": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_24": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_25": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_26": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_27": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_28": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_29": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_30": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_31": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_32": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_33": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_34": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_35": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_36": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_37": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_38": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_39": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_40": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_41": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_42": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_43": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_44": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_45": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_46": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_47": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_48": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_49": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_50": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_51": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_52": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_53": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_54": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_55": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_56": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_57": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_58": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_59": "レシーバー上の入力名を変更します（最大14文字）。",
+              "input_name_60": "レシーバー上の入力名を変更します（最大14文字）。"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Pioneer Telnet AVR"
+}

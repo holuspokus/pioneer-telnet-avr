@@ -1,0 +1,293 @@
+{
+  "config": {
+    "error": {
+      "cannot_connect": "Port Telnet du récepteur inaccessible."
+    },
+    "step": {
+      "choose": {
+        "title": "Choisir un récepteur Pioneer",
+        "data": {
+          "receiver": "Receiver",
+          "showReceiverNameInSwitches": "Afficher le nom du récepteur dans les entités"
+        },
+        "description": "Sélectionnez le récepteur à ajouter.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Ajoute le nom du récepteur aux noms de toutes ses entités. Par exemple « Apple TV VSX-923 » au lieu de « Apple TV ». Sinon, les noms restent courts ; le récepteur conserve son nom."
+        }
+      },
+      "manual": {
+        "title": "Ajouter un récepteur manuellement",
+        "data": {
+          "host": "Host",
+          "port": "Telnet port",
+          "showReceiverNameInSwitches": "Afficher le nom du récepteur dans les entités"
+        },
+        "description": "Saisissez l’adresse d’un autre récepteur et choisissez si son nom doit apparaître sur les interrupteurs.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Ajoute le nom du récepteur aux noms de toutes ses entités. Par exemple « Apple TV VSX-923 » au lieu de « Apple TV ». Sinon, les noms restent courts ; le récepteur conserve son nom."
+        }
+      },
+      "discovery_confirm": {
+        "title": "Ajouter {name} ?",
+        "description": "Choisissez si le nom du récepteur doit apparaître sur les interrupteurs avant de l’ajouter.",
+        "data": {
+          "showReceiverNameInSwitches": "Afficher le nom du récepteur dans les entités"
+        },
+        "data_description": {
+          "showReceiverNameInSwitches": "Ajoute le nom du récepteur aux noms de toutes ses entités. Par exemple « Apple TV VSX-923 » au lieu de « Apple TV ». Sinon, les noms restent courts ; le récepteur conserve son nom."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Récepteur déjà configuré.",
+      "cannot_connect": "Port Telnet du récepteur inaccessible."
+    }
+  },
+  "options": {
+    "error": {
+      "too_many_inputs": "Choisissez au maximum cinq entrées.",
+      "invalid_listening_mode": "L’identifiant du mode doit contenir quatre chiffres."
+    },
+    "step": {
+      "init": {
+        "title": "Options du récepteur Pioneer",
+        "sections": {
+          "inputs": {
+            "name": "Entrées",
+            "data": {
+              "input_switches": "Entrées comme interrupteurs",
+              "toggleOffIfActive": "Éteindre en appuyant sur l’entrée active",
+              "hidden_zone_inputs": "Masquer les entrées des téléviseurs de zone"
+            },
+            "data_description": {
+              "input_switches": "Jusqu’à cinq entrées, chacune comme interrupteur.",
+              "toggleOffIfActive": "Appuyer à nouveau sur l’entrée active éteint le récepteur (uniquement pour les entrées créées comme interrupteurs distincts).",
+              "hidden_zone_inputs": "Choisissez les entrées à masquer sur les téléviseurs de zone. Le récepteur principal conserve toutes les entrées."
+            }
+          },
+          "listening_modes": {
+            "name": "Modes d’écoute",
+            "data": {
+              "toggleListeningMode": "Créer un interrupteur de mode d’écoute",
+              "toggleListeningModeLink": "Associer le mode d’écoute au récepteur",
+              "listeningMode": "Mode d’écoute principal",
+              "listeningModeOther": "Mode d’écoute alternatif",
+              "listeningModeFallback": "Mode d’écoute de secours",
+              "listelingmodesAsTV": "Téléviseur supplémentaire pour les modes d’écoute",
+              "onlyLearnedListeningModes": "Limiter aux modes appris après dix confirmations",
+              "resetListeningModes": "Réinitialiser les modes lors de l’enregistrement",
+              "excluded_listening_modes": "Exclure des modes d’écoute"
+            },
+            "data_description": {
+              "toggleListeningMode": "Créer un interrupteur de mode d’écoute.",
+              "toggleListeningModeLink": "Lie l’interrupteur du mode d’écoute à la TV principale de la passerelle Pioneer, si elle est activée.",
+              "listeningMode": "Mode d’écoute principal.",
+              "listeningModeOther": "Mode d’écoute alternatif.",
+              "listeningModeFallback": "Mode d’écoute de secours.",
+              "listelingmodesAsTV": "Crée un téléviseur HomeKit distinct pour les modes d’écoute. Choisissez les chaînes dans Maison ; aucun téléviseur supplémentaire n’apparaît dans Home Assistant.",
+              "onlyLearnedListeningModes": "Après dix modes confirmés, cette option limite le mode sonore du récepteur dans Home Assistant aux modes confirmés et par défaut. Le téléviseur HomeKit conserve tous les modes pour la sélection manuelle. Enregistrez et rouvrez les paramètres pour actualiser les trois listes.",
+              "resetListeningModes": "Efface une fois les modes appris automatiquement lors de l’enregistrement. La visibilité manuelle des chaînes HomeKit est conservée.",
+              "excluded_listening_modes": "Un mode est exclu automatiquement après deux réponses E06. Vous pouvez aussi l’exclure ici ou le rétablir en le désélectionnant. Il disparaît de Home Assistant, mais son canal reste présent et masqué dans Apple Home."
+            }
+          },
+          "homekit": {
+            "name": "HomeKit et entités",
+            "data": {
+              "homekitLinkedVolume": "Créer une TV HomeKit avec lumière de volume liée",
+              "volumeAsLight": "Afficher aussi le volume comme une lampe",
+              "additionalEntitiesInHa": "Afficher les entités supplémentaires dans Home Assistant et utiliser HomeKit Bridge"
+            },
+            "data_description": {
+              "homekitLinkedVolume": "Crée une TV avec lampe de volume intégrée dans la passerelle Pioneer commune. Un seul code de jumelage est affiché pour la passerelle.",
+              "volumeAsLight": "Crée une lampe de volume distincte. La nouvelle case détermine si elle apparaît dans Home Assistant ou dans la passerelle Pioneer commune.",
+              "additionalEntitiesInHa": "Les interrupteurs des entrées, la lampe de volume distincte et l’interrupteur du mode d’écoute apparaissent dans Home Assistant et peuvent être publiés via HomeKit Bridge. Sinon, ils apparaissent uniquement dans la passerelle Pioneer commune."
+            }
+          },
+          "volume_zones": {
+            "name": "Volume et zones",
+            "data": {
+              "minVolume": "Volume minimal",
+              "maxVolume": "Volume maximal",
+              "zoneControl": "Activer le contrôle des zones"
+            },
+            "data_description": {
+              "minVolume": "Volume minimal de la lampe.",
+              "maxVolume": "Volume maximal de la lampe.",
+              "zoneControl": "Activer le contrôle des zones."
+            }
+          },
+          "receiver_features": {
+            "name": "Autres fonctions du récepteur",
+            "data": {
+              "audioInfo": "Afficher les informations audio",
+              "videoInfo": "Afficher les informations vidéo",
+              "toneControls": "Régler tonalité, graves et aigus",
+              "mcaccControl": "MCACC comme TV distincte",
+              "phaseControl": "Régler la phase",
+              "virtualSurroundBack": "Régler Virtual Surround Back",
+              "channelLevels": "Régler les niveaux des canaux",
+              "tunerControl": "Commander le tuner",
+              "hidden_mcacc_memories": "Masquer les mémoires MCACC du téléviseur"
+            },
+            "data_description": {
+              "audioInfo": "Afficher les informations audio. Fonction créée uniquement si la réponse Telnet est prise en charge.",
+              "videoInfo": "Afficher les informations vidéo. Fonction créée uniquement si la réponse Telnet est prise en charge.",
+              "toneControls": "Régler tonalité, graves et aigus. Fonction créée uniquement si la réponse Telnet est prise en charge.",
+              "mcaccControl": "Crée un téléviseur HomeKit distinct avec les mémoires MCACC 1 à 6 comme chaînes sélectionnables. Aucun téléviseur supplémentaire n’apparaît dans Home Assistant.",
+              "phaseControl": "TV distincte avec Off, On et Full Band.",
+              "virtualSurroundBack": "Régler Virtual Surround Back. Fonction créée uniquement si la réponse Telnet est prise en charge.",
+              "channelLevels": "Régler les niveaux des canaux. Fonction créée uniquement si la réponse Telnet est prise en charge.",
+              "tunerControl": "Commander le tuner. Fonction créée uniquement si la réponse Telnet est prise en charge.",
+              "hidden_mcacc_memories": "Choisissez les mémoires MCACC à masquer sur le téléviseur."
+            }
+          },
+          "connection": {
+            "name": "Connexion",
+            "data": {
+              "telnetSwitch": "Créer un interrupteur Telnet",
+              "maxReconnectAttempts": "Nombre maximal de reconnexions",
+              "maxReconnectAttemptsBeforeDiscover": "Rechercher après ces échecs",
+              "sendKeepAliveTimeoutMinutes": "Durée de maintien de la connexion (minutes)",
+              "telnetSwitchInHa": "Interrupteur de connexion Telnet dans Home Assistant"
+            },
+            "data_description": {
+              "telnetSwitch": "Créer un interrupteur Telnet.",
+              "maxReconnectAttempts": "Nombre maximal de reconnexions.",
+              "maxReconnectAttemptsBeforeDiscover": "Rechercher après ces échecs.",
+              "sendKeepAliveTimeoutMinutes": "Durée de maintien de la connexion (minutes).",
+              "telnetSwitchInHa": "Activé : l’interrupteur de connexion Telnet apparaît dans Home Assistant. Désactivé : il apparaît uniquement dans la passerelle Pioneer HomeKit commune."
+            }
+          },
+          "input_names": {
+            "name": "Renommer les entrées",
+            "data": {
+              "input_name_01": "Renommer l’entrée sur le récepteur 01",
+              "input_name_02": "Renommer l’entrée sur le récepteur 02",
+              "input_name_03": "Renommer l’entrée sur le récepteur 03",
+              "input_name_04": "Renommer l’entrée sur le récepteur 04",
+              "input_name_05": "Renommer l’entrée sur le récepteur 05",
+              "input_name_06": "Renommer l’entrée sur le récepteur 06",
+              "input_name_07": "Renommer l’entrée sur le récepteur 07",
+              "input_name_08": "Renommer l’entrée sur le récepteur 08",
+              "input_name_09": "Renommer l’entrée sur le récepteur 09",
+              "input_name_10": "Renommer l’entrée sur le récepteur 10",
+              "input_name_11": "Renommer l’entrée sur le récepteur 11",
+              "input_name_12": "Renommer l’entrée sur le récepteur 12",
+              "input_name_13": "Renommer l’entrée sur le récepteur 13",
+              "input_name_14": "Renommer l’entrée sur le récepteur 14",
+              "input_name_15": "Renommer l’entrée sur le récepteur 15",
+              "input_name_16": "Renommer l’entrée sur le récepteur 16",
+              "input_name_17": "Renommer l’entrée sur le récepteur 17",
+              "input_name_18": "Renommer l’entrée sur le récepteur 18",
+              "input_name_19": "Renommer l’entrée sur le récepteur 19",
+              "input_name_20": "Renommer l’entrée sur le récepteur 20",
+              "input_name_21": "Renommer l’entrée sur le récepteur 21",
+              "input_name_22": "Renommer l’entrée sur le récepteur 22",
+              "input_name_23": "Renommer l’entrée sur le récepteur 23",
+              "input_name_24": "Renommer l’entrée sur le récepteur 24",
+              "input_name_25": "Renommer l’entrée sur le récepteur 25",
+              "input_name_26": "Renommer l’entrée sur le récepteur 26",
+              "input_name_27": "Renommer l’entrée sur le récepteur 27",
+              "input_name_28": "Renommer l’entrée sur le récepteur 28",
+              "input_name_29": "Renommer l’entrée sur le récepteur 29",
+              "input_name_30": "Renommer l’entrée sur le récepteur 30",
+              "input_name_31": "Renommer l’entrée sur le récepteur 31",
+              "input_name_32": "Renommer l’entrée sur le récepteur 32",
+              "input_name_33": "Renommer l’entrée sur le récepteur 33",
+              "input_name_34": "Renommer l’entrée sur le récepteur 34",
+              "input_name_35": "Renommer l’entrée sur le récepteur 35",
+              "input_name_36": "Renommer l’entrée sur le récepteur 36",
+              "input_name_37": "Renommer l’entrée sur le récepteur 37",
+              "input_name_38": "Renommer l’entrée sur le récepteur 38",
+              "input_name_39": "Renommer l’entrée sur le récepteur 39",
+              "input_name_40": "Renommer l’entrée sur le récepteur 40",
+              "input_name_41": "Renommer l’entrée sur le récepteur 41",
+              "input_name_42": "Renommer l’entrée sur le récepteur 42",
+              "input_name_43": "Renommer l’entrée sur le récepteur 43",
+              "input_name_44": "Renommer l’entrée sur le récepteur 44",
+              "input_name_45": "Renommer l’entrée sur le récepteur 45",
+              "input_name_46": "Renommer l’entrée sur le récepteur 46",
+              "input_name_47": "Renommer l’entrée sur le récepteur 47",
+              "input_name_48": "Renommer l’entrée sur le récepteur 48",
+              "input_name_49": "Renommer l’entrée sur le récepteur 49",
+              "input_name_50": "Renommer l’entrée sur le récepteur 50",
+              "input_name_51": "Renommer l’entrée sur le récepteur 51",
+              "input_name_52": "Renommer l’entrée sur le récepteur 52",
+              "input_name_53": "Renommer l’entrée sur le récepteur 53",
+              "input_name_54": "Renommer l’entrée sur le récepteur 54",
+              "input_name_55": "Renommer l’entrée sur le récepteur 55",
+              "input_name_56": "Renommer l’entrée sur le récepteur 56",
+              "input_name_57": "Renommer l’entrée sur le récepteur 57",
+              "input_name_58": "Renommer l’entrée sur le récepteur 58",
+              "input_name_59": "Renommer l’entrée sur le récepteur 59",
+              "input_name_60": "Renommer l’entrée sur le récepteur 60"
+            },
+            "data_description": {
+              "input_name_01": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_02": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_03": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_04": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_05": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_06": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_07": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_08": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_09": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_10": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_11": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_12": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_13": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_14": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_15": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_16": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_17": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_18": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_19": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_20": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_21": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_22": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_23": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_24": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_25": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_26": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_27": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_28": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_29": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_30": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_31": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_32": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_33": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_34": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_35": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_36": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_37": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_38": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_39": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_40": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_41": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_42": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_43": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_44": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_45": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_46": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_47": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_48": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_49": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_50": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_51": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_52": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_53": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_54": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_55": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_56": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_57": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_58": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_59": "Renommer l’entrée sur le récepteur (14 caractères maximum).",
+              "input_name_60": "Renommer l’entrée sur le récepteur (14 caractères maximum)."
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Pioneer Telnet AVR"
+}

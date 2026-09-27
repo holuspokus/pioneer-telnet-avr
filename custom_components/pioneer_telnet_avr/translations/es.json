@@ -1,0 +1,293 @@
+{
+  "config": {
+    "error": {
+      "cannot_connect": "No se puede acceder al puerto Telnet del receptor."
+    },
+    "step": {
+      "choose": {
+        "title": "Elegir receptor Pioneer",
+        "data": {
+          "receiver": "Receiver",
+          "showReceiverNameInSwitches": "Mostrar el nombre del receptor en las entidades"
+        },
+        "description": "Selecciona el receptor que quieres añadir.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Incluye el nombre del receptor en todas sus entidades. Por ejemplo, «Apple TV VSX-923» en lugar de «Apple TV». Sin esta opción, los nombres son breves; el dispositivo receptor conserva su nombre."
+        }
+      },
+      "manual": {
+        "title": "Añadir receptor manualmente",
+        "data": {
+          "host": "Host",
+          "port": "Telnet port",
+          "showReceiverNameInSwitches": "Mostrar el nombre del receptor en las entidades"
+        },
+        "description": "Introduce la dirección de otro receptor y elige si su nombre debe aparecer en los interruptores.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Incluye el nombre del receptor en todas sus entidades. Por ejemplo, «Apple TV VSX-923» en lugar de «Apple TV». Sin esta opción, los nombres son breves; el dispositivo receptor conserva su nombre."
+        }
+      },
+      "discovery_confirm": {
+        "title": "¿Añadir {name}?",
+        "description": "Elige si el nombre del receptor debe aparecer en los interruptores antes de añadirlo.",
+        "data": {
+          "showReceiverNameInSwitches": "Mostrar el nombre del receptor en las entidades"
+        },
+        "data_description": {
+          "showReceiverNameInSwitches": "Incluye el nombre del receptor en todas sus entidades. Por ejemplo, «Apple TV VSX-923» en lugar de «Apple TV». Sin esta opción, los nombres son breves; el dispositivo receptor conserva su nombre."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "El receptor ya está configurado.",
+      "cannot_connect": "No se puede acceder al puerto Telnet del receptor."
+    }
+  },
+  "options": {
+    "error": {
+      "too_many_inputs": "Elige como máximo cinco entradas.",
+      "invalid_listening_mode": "El ID del modo debe tener cuatro dígitos."
+    },
+    "step": {
+      "init": {
+        "title": "Opciones del receptor Pioneer",
+        "sections": {
+          "inputs": {
+            "name": "Entradas",
+            "data": {
+              "input_switches": "Entradas como interruptores",
+              "toggleOffIfActive": "Apagar al pulsar la entrada activa",
+              "hidden_zone_inputs": "Ocultar entradas en los TV de zona"
+            },
+            "data_description": {
+              "input_switches": "Hasta cinco entradas, cada una como interruptor.",
+              "toggleOffIfActive": "Al pulsar de nuevo la entrada activa se apaga el receptor (solo para entradas creadas como interruptores independientes).",
+              "hidden_zone_inputs": "Selecciona las entradas que no aparecerán en los TV de zona. El receptor principal conserva todas."
+            }
+          },
+          "listening_modes": {
+            "name": "Modos de escucha",
+            "data": {
+              "toggleListeningMode": "Crear interruptor de modo de escucha",
+              "toggleListeningModeLink": "Agrupar el modo de escucha con el receptor",
+              "listeningMode": "Modo de escucha principal",
+              "listeningModeOther": "Modo de escucha alternativo",
+              "listeningModeFallback": "Modo de escucha de respaldo",
+              "listelingmodesAsTV": "Televisor adicional para modos de escucha",
+              "onlyLearnedListeningModes": "Limitar a los modos aprendidos tras confirmar diez",
+              "resetListeningModes": "Restablecer modos al guardar",
+              "excluded_listening_modes": "Excluir modos de escucha"
+            },
+            "data_description": {
+              "toggleListeningMode": "Crear interruptor de modo de escucha.",
+              "toggleListeningModeLink": "Vincula el interruptor del modo de escucha al televisor principal del puente Pioneer, si está activado.",
+              "listeningMode": "Modo de escucha principal.",
+              "listeningModeOther": "Modo de escucha alternativo.",
+              "listeningModeFallback": "Modo de escucha de respaldo.",
+              "listelingmodesAsTV": "Crea un televisor HomeKit independiente para los modos de escucha. Selecciona los canales en Casa; no aparece otro televisor en Home Assistant.",
+              "onlyLearnedListeningModes": "Tras confirmar diez modos, esta opción limita el modo de sonido del receptor en Home Assistant a los modos confirmados y predeterminados. El televisor HomeKit mantiene todos los modos para seleccionar canales manualmente. Guarda y vuelve a abrir los ajustes para actualizar las tres listas.",
+              "resetListeningModes": "Borra una vez los modos aprendidos automáticamente al guardar. Se conserva la visibilidad manual de canales HomeKit.",
+              "excluded_listening_modes": "Un modo se excluye automáticamente tras dos respuestas E06. También puedes excluirlo aquí o recuperarlo desmarcándolo. Desaparece de Home Assistant; su canal permanece en Apple Home, pero oculto."
+            }
+          },
+          "homekit": {
+            "name": "HomeKit y entidades",
+            "data": {
+              "homekitLinkedVolume": "Crear TV HomeKit con luz de volumen vinculada",
+              "volumeAsLight": "Mostrar también el volumen como luz",
+              "additionalEntitiesInHa": "Mostrar entidades adicionales en Home Assistant y usar HomeKit Bridge"
+            },
+            "data_description": {
+              "homekitLinkedVolume": "Crea un televisor con luz de volumen integrada en el puente Pioneer compartido. Se muestra un único código de emparejamiento para el puente.",
+              "volumeAsLight": "Crea una luz de volumen independiente. La nueva casilla determina si aparece en Home Assistant o en el puente Pioneer compartido.",
+              "additionalEntitiesInHa": "Los interruptores de entrada, la luz de volumen independiente y el interruptor del modo de escucha aparecen en Home Assistant y pueden publicarse mediante HomeKit Bridge. Si se desactiva, solo aparecen en el puente Pioneer compartido."
+            }
+          },
+          "volume_zones": {
+            "name": "Volumen y zonas",
+            "data": {
+              "minVolume": "Volumen mínimo",
+              "maxVolume": "Volumen máximo",
+              "zoneControl": "Activar control de zonas"
+            },
+            "data_description": {
+              "minVolume": "Volumen mínimo de la luz.",
+              "maxVolume": "Volumen máximo de la luz.",
+              "zoneControl": "Activar control de zonas."
+            }
+          },
+          "receiver_features": {
+            "name": "Otras funciones del receptor",
+            "data": {
+              "audioInfo": "Mostrar información de audio",
+              "videoInfo": "Mostrar información de vídeo",
+              "toneControls": "Controlar tono, graves y agudos",
+              "mcaccControl": "MCACC como TV independiente",
+              "phaseControl": "Controlar fase",
+              "virtualSurroundBack": "Controlar Virtual Surround Back",
+              "channelLevels": "Controlar niveles de canal",
+              "tunerControl": "Controlar sintonizador",
+              "hidden_mcacc_memories": "Ocultar memorias MCACC en el TV"
+            },
+            "data_description": {
+              "audioInfo": "Mostrar información de audio. Solo se crea si el receptor responde por Telnet.",
+              "videoInfo": "Mostrar información de vídeo. Solo se crea si el receptor responde por Telnet.",
+              "toneControls": "Controlar tono, graves y agudos. Solo se crea si el receptor responde por Telnet.",
+              "mcaccControl": "Crea un televisor HomeKit independiente con las memorias MCACC 1 a 6 como canales seleccionables. No aparece otro televisor en Home Assistant.",
+              "phaseControl": "TV independiente con Off, On y Full Band.",
+              "virtualSurroundBack": "Controlar Virtual Surround Back. Solo se crea si el receptor responde por Telnet.",
+              "channelLevels": "Controlar niveles de canal. Solo se crea si el receptor responde por Telnet.",
+              "tunerControl": "Controlar sintonizador. Solo se crea si el receptor responde por Telnet.",
+              "hidden_mcacc_memories": "Selecciona las memorias MCACC que no aparecerán en el TV."
+            }
+          },
+          "connection": {
+            "name": "Conexión",
+            "data": {
+              "telnetSwitch": "Crear interruptor Telnet",
+              "maxReconnectAttempts": "Intentos máximos de reconexión",
+              "maxReconnectAttemptsBeforeDiscover": "Buscar tras estos fallos",
+              "sendKeepAliveTimeoutMinutes": "Tiempo de conexión tras apagar (minutos)",
+              "telnetSwitchInHa": "Interruptor de conexión Telnet en Home Assistant"
+            },
+            "data_description": {
+              "telnetSwitch": "Crear interruptor Telnet.",
+              "maxReconnectAttempts": "Intentos máximos de reconexión.",
+              "maxReconnectAttemptsBeforeDiscover": "Buscar tras estos fallos.",
+              "sendKeepAliveTimeoutMinutes": "Tiempo de conexión tras apagar (minutos).",
+              "telnetSwitchInHa": "Activado: el interruptor de conexión Telnet aparece en Home Assistant. Desactivado: solo aparece en el puente Pioneer HomeKit compartido."
+            }
+          },
+          "input_names": {
+            "name": "Renombrar entradas",
+            "data": {
+              "input_name_01": "Cambiar el nombre de la entrada en el receptor 01",
+              "input_name_02": "Cambiar el nombre de la entrada en el receptor 02",
+              "input_name_03": "Cambiar el nombre de la entrada en el receptor 03",
+              "input_name_04": "Cambiar el nombre de la entrada en el receptor 04",
+              "input_name_05": "Cambiar el nombre de la entrada en el receptor 05",
+              "input_name_06": "Cambiar el nombre de la entrada en el receptor 06",
+              "input_name_07": "Cambiar el nombre de la entrada en el receptor 07",
+              "input_name_08": "Cambiar el nombre de la entrada en el receptor 08",
+              "input_name_09": "Cambiar el nombre de la entrada en el receptor 09",
+              "input_name_10": "Cambiar el nombre de la entrada en el receptor 10",
+              "input_name_11": "Cambiar el nombre de la entrada en el receptor 11",
+              "input_name_12": "Cambiar el nombre de la entrada en el receptor 12",
+              "input_name_13": "Cambiar el nombre de la entrada en el receptor 13",
+              "input_name_14": "Cambiar el nombre de la entrada en el receptor 14",
+              "input_name_15": "Cambiar el nombre de la entrada en el receptor 15",
+              "input_name_16": "Cambiar el nombre de la entrada en el receptor 16",
+              "input_name_17": "Cambiar el nombre de la entrada en el receptor 17",
+              "input_name_18": "Cambiar el nombre de la entrada en el receptor 18",
+              "input_name_19": "Cambiar el nombre de la entrada en el receptor 19",
+              "input_name_20": "Cambiar el nombre de la entrada en el receptor 20",
+              "input_name_21": "Cambiar el nombre de la entrada en el receptor 21",
+              "input_name_22": "Cambiar el nombre de la entrada en el receptor 22",
+              "input_name_23": "Cambiar el nombre de la entrada en el receptor 23",
+              "input_name_24": "Cambiar el nombre de la entrada en el receptor 24",
+              "input_name_25": "Cambiar el nombre de la entrada en el receptor 25",
+              "input_name_26": "Cambiar el nombre de la entrada en el receptor 26",
+              "input_name_27": "Cambiar el nombre de la entrada en el receptor 27",
+              "input_name_28": "Cambiar el nombre de la entrada en el receptor 28",
+              "input_name_29": "Cambiar el nombre de la entrada en el receptor 29",
+              "input_name_30": "Cambiar el nombre de la entrada en el receptor 30",
+              "input_name_31": "Cambiar el nombre de la entrada en el receptor 31",
+              "input_name_32": "Cambiar el nombre de la entrada en el receptor 32",
+              "input_name_33": "Cambiar el nombre de la entrada en el receptor 33",
+              "input_name_34": "Cambiar el nombre de la entrada en el receptor 34",
+              "input_name_35": "Cambiar el nombre de la entrada en el receptor 35",
+              "input_name_36": "Cambiar el nombre de la entrada en el receptor 36",
+              "input_name_37": "Cambiar el nombre de la entrada en el receptor 37",
+              "input_name_38": "Cambiar el nombre de la entrada en el receptor 38",
+              "input_name_39": "Cambiar el nombre de la entrada en el receptor 39",
+              "input_name_40": "Cambiar el nombre de la entrada en el receptor 40",
+              "input_name_41": "Cambiar el nombre de la entrada en el receptor 41",
+              "input_name_42": "Cambiar el nombre de la entrada en el receptor 42",
+              "input_name_43": "Cambiar el nombre de la entrada en el receptor 43",
+              "input_name_44": "Cambiar el nombre de la entrada en el receptor 44",
+              "input_name_45": "Cambiar el nombre de la entrada en el receptor 45",
+              "input_name_46": "Cambiar el nombre de la entrada en el receptor 46",
+              "input_name_47": "Cambiar el nombre de la entrada en el receptor 47",
+              "input_name_48": "Cambiar el nombre de la entrada en el receptor 48",
+              "input_name_49": "Cambiar el nombre de la entrada en el receptor 49",
+              "input_name_50": "Cambiar el nombre de la entrada en el receptor 50",
+              "input_name_51": "Cambiar el nombre de la entrada en el receptor 51",
+              "input_name_52": "Cambiar el nombre de la entrada en el receptor 52",
+              "input_name_53": "Cambiar el nombre de la entrada en el receptor 53",
+              "input_name_54": "Cambiar el nombre de la entrada en el receptor 54",
+              "input_name_55": "Cambiar el nombre de la entrada en el receptor 55",
+              "input_name_56": "Cambiar el nombre de la entrada en el receptor 56",
+              "input_name_57": "Cambiar el nombre de la entrada en el receptor 57",
+              "input_name_58": "Cambiar el nombre de la entrada en el receptor 58",
+              "input_name_59": "Cambiar el nombre de la entrada en el receptor 59",
+              "input_name_60": "Cambiar el nombre de la entrada en el receptor 60"
+            },
+            "data_description": {
+              "input_name_01": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_02": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_03": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_04": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_05": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_06": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_07": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_08": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_09": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_10": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_11": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_12": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_13": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_14": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_15": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_16": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_17": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_18": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_19": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_20": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_21": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_22": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_23": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_24": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_25": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_26": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_27": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_28": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_29": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_30": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_31": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_32": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_33": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_34": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_35": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_36": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_37": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_38": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_39": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_40": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_41": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_42": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_43": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_44": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_45": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_46": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_47": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_48": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_49": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_50": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_51": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_52": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_53": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_54": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_55": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_56": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_57": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_58": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_59": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres).",
+              "input_name_60": "Cambiar el nombre de la entrada en el receptor (máximo 14 caracteres)."
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Pioneer Telnet AVR"
+}

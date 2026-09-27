@@ -1,0 +1,293 @@
+{
+  "config": {
+    "error": {
+      "cannot_connect": "无法连接接收机的 Telnet 端口。"
+    },
+    "step": {
+      "choose": {
+        "title": "选择 Pioneer 接收机",
+        "data": {
+          "receiver": "Receiver",
+          "showReceiverNameInSwitches": "在实体名称中显示接收器名称"
+        },
+        "description": "选择要添加的接收机。",
+        "data_description": {
+          "showReceiverNameInSwitches": "在此接收器的所有实体名称中加入接收器名称。例如显示“Apple TV VSX-923”而不是“Apple TV”。关闭后实体名称保持简短，接收器设备本身的名称不变。"
+        }
+      },
+      "manual": {
+        "title": "手动添加接收机",
+        "data": {
+          "host": "Host",
+          "port": "Telnet port",
+          "showReceiverNameInSwitches": "在实体名称中显示接收器名称"
+        },
+        "description": "输入另一台接收机的地址，并选择是否在开关名称中显示其名称。",
+        "data_description": {
+          "showReceiverNameInSwitches": "在此接收器的所有实体名称中加入接收器名称。例如显示“Apple TV VSX-923”而不是“Apple TV”。关闭后实体名称保持简短，接收器设备本身的名称不变。"
+        }
+      },
+      "discovery_confirm": {
+        "title": "添加 {name}？",
+        "description": "添加前，选择是否在开关名称中显示接收机名称。",
+        "data": {
+          "showReceiverNameInSwitches": "在实体名称中显示接收器名称"
+        },
+        "data_description": {
+          "showReceiverNameInSwitches": "在此接收器的所有实体名称中加入接收器名称。例如显示“Apple TV VSX-923”而不是“Apple TV”。关闭后实体名称保持简短，接收器设备本身的名称不变。"
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "接收机已经配置。",
+      "cannot_connect": "无法连接接收机的 Telnet 端口。"
+    }
+  },
+  "options": {
+    "error": {
+      "too_many_inputs": "最多选择五个输入源。",
+      "invalid_listening_mode": "模式 ID 必须恰好为四位数字。"
+    },
+    "step": {
+      "init": {
+        "title": "Pioneer 接收机设置",
+        "sections": {
+          "inputs": {
+            "name": "输入",
+            "data": {
+              "input_switches": "将输入源显示为独立开关",
+              "toggleOffIfActive": "再次按当前输入源时关闭接收机",
+              "hidden_zone_inputs": "在区域电视中隐藏输入源"
+            },
+            "data_description": {
+              "input_switches": "最多五个输入源，每个都显示为独立开关。",
+              "toggleOffIfActive": "再次按下当前输入源会关闭接收器（仅适用于创建为独立开关的输入源）。",
+              "hidden_zone_inputs": "选择不在区域电视中显示的输入源。主接收器仍保留所有输入源。"
+            }
+          },
+          "listening_modes": {
+            "name": "聆听模式",
+            "data": {
+              "toggleListeningMode": "创建聆听模式开关",
+              "toggleListeningModeLink": "将聆听模式开关归入接收机",
+              "listeningMode": "主要聆听模式",
+              "listeningModeOther": "备用聆听模式",
+              "listeningModeFallback": "回退聆听模式",
+              "listelingmodesAsTV": "用于聆听模式的附加电视",
+              "onlyLearnedListeningModes": "确认十种模式后仅显示已学习模式",
+              "resetListeningModes": "保存时重置聆听模式列表",
+              "excluded_listening_modes": "排除聆听模式"
+            },
+            "data_description": {
+              "toggleListeningMode": "创建聆听模式开关.",
+              "toggleListeningModeLink": "启用主电视时，将聆听模式开关关联到共享 Pioneer 网桥中的主电视。",
+              "listeningMode": "主要聆听模式.",
+              "listeningModeOther": "备用聆听模式.",
+              "listeningModeFallback": "回退聆听模式.",
+              "listelingmodesAsTV": "为聆听模式创建独立的 HomeKit 电视。可在“家庭”App 中选择频道；Home Assistant 中不会显示额外的电视。",
+              "onlyLearnedListeningModes": "确认至少十种模式后，此选项会将 Home Assistant 中接收器的声音模式限制为已确认模式和默认值。HomeKit 电视仍提供全部模式供手动选择频道。保存并重新打开设置以更新三个选择列表。",
+              "resetListeningModes": "保存时清除自动学习的模式。手动设置的 HomeKit 频道可见性会保留。",
+              "excluded_listening_modes": "收到两次 E06 响应后会自动排除该模式。你也可以在此手动排除，或取消勾选以恢复。排除的模式不会出现在 Home Assistant 中；Apple Home 中的频道会保留但隐藏。"
+            }
+          },
+          "homekit": {
+            "name": "HomeKit 与实体",
+            "data": {
+              "homekitLinkedVolume": "创建带关联音量灯的 HomeKit 电视",
+              "volumeAsLight": "同时将音量显示为灯光",
+              "additionalEntitiesInHa": "在 Home Assistant 中显示附加实体并使用 HomeKit Bridge"
+            },
+            "data_description": {
+              "homekitLinkedVolume": "在共享 Pioneer 网桥中创建带内置音量灯的电视。整个网桥只显示一个配对码。",
+              "volumeAsLight": "创建独立的音量灯。新选项决定它显示在 Home Assistant 还是共享的 Pioneer 网桥中。",
+              "additionalEntitiesInHa": "独立输入开关、单独的音量灯和聆听模式开关会显示在 Home Assistant 中，并可通过 HomeKit Bridge 发布。关闭后，它们仅显示在共享的 Pioneer HomeKit 网桥中。"
+            }
+          },
+          "volume_zones": {
+            "name": "音量和区域",
+            "data": {
+              "minVolume": "最低音量",
+              "maxVolume": "最高音量",
+              "zoneControl": "启用分区控制"
+            },
+            "data_description": {
+              "minVolume": "音量灯最低音量.",
+              "maxVolume": "音量灯最高音量.",
+              "zoneControl": "启用分区控制."
+            }
+          },
+          "receiver_features": {
+            "name": "其他接收器功能",
+            "data": {
+              "audioInfo": "显示音频信息",
+              "videoInfo": "显示视频信息",
+              "toneControls": "控制音调、低音和高音",
+              "mcaccControl": "将 MCACC 显示为独立电视设备",
+              "phaseControl": "控制相位",
+              "virtualSurroundBack": "控制虚拟环绕后声道",
+              "channelLevels": "控制声道电平",
+              "tunerControl": "控制收音机",
+              "hidden_mcacc_memories": "在电视中隐藏 MCACC 存储位"
+            },
+            "data_description": {
+              "audioInfo": "显示音频信息. 仅在接收机通过 Telnet 回应时创建。",
+              "videoInfo": "显示视频信息. 仅在接收机通过 Telnet 回应时创建。",
+              "toneControls": "控制音调、低音和高音. 仅在接收机通过 Telnet 回应时创建。",
+              "mcaccControl": "创建独立的 HomeKit 电视，将 MCACC 存储 1 至 6 作为可选频道。Home Assistant 中不会显示额外的电视。",
+              "phaseControl": "独立电视设备提供 Off、On 和 Full Band 频道。",
+              "virtualSurroundBack": "控制虚拟环绕后声道. 仅在接收机通过 Telnet 回应时创建。",
+              "channelLevels": "控制声道电平. 仅在接收机通过 Telnet 回应时创建。",
+              "tunerControl": "控制收音机. 仅在接收机通过 Telnet 回应时创建。",
+              "hidden_mcacc_memories": "选择不在电视中显示的 MCACC 存储位。"
+            }
+          },
+          "connection": {
+            "name": "连接",
+            "data": {
+              "telnetSwitch": "创建 Telnet 连接开关",
+              "maxReconnectAttempts": "最大重连次数",
+              "maxReconnectAttemptsBeforeDiscover": "失败后重新发现的次数",
+              "sendKeepAliveTimeoutMinutes": "关机后保持连接时间（分钟）",
+              "telnetSwitchInHa": "在 Home Assistant 中显示 Telnet 连接开关"
+            },
+            "data_description": {
+              "telnetSwitch": "创建 Telnet 连接开关.",
+              "maxReconnectAttempts": "最大重连次数.",
+              "maxReconnectAttemptsBeforeDiscover": "失败后重新发现的次数.",
+              "sendKeepAliveTimeoutMinutes": "关机后保持连接时间（分钟）.",
+              "telnetSwitchInHa": "启用时，Telnet 连接开关显示在 Home Assistant 中。关闭时，仅显示在共享的 Pioneer HomeKit 网桥中。"
+            }
+          },
+          "input_names": {
+            "name": "重命名输入",
+            "data": {
+              "input_name_01": "在接收机上重命名输入源（最多 14 个字符）。 01",
+              "input_name_02": "在接收机上重命名输入源（最多 14 个字符）。 02",
+              "input_name_03": "在接收机上重命名输入源（最多 14 个字符）。 03",
+              "input_name_04": "在接收机上重命名输入源（最多 14 个字符）。 04",
+              "input_name_05": "在接收机上重命名输入源（最多 14 个字符）。 05",
+              "input_name_06": "在接收机上重命名输入源（最多 14 个字符）。 06",
+              "input_name_07": "在接收机上重命名输入源（最多 14 个字符）。 07",
+              "input_name_08": "在接收机上重命名输入源（最多 14 个字符）。 08",
+              "input_name_09": "在接收机上重命名输入源（最多 14 个字符）。 09",
+              "input_name_10": "在接收机上重命名输入源（最多 14 个字符）。 10",
+              "input_name_11": "在接收机上重命名输入源（最多 14 个字符）。 11",
+              "input_name_12": "在接收机上重命名输入源（最多 14 个字符）。 12",
+              "input_name_13": "在接收机上重命名输入源（最多 14 个字符）。 13",
+              "input_name_14": "在接收机上重命名输入源（最多 14 个字符）。 14",
+              "input_name_15": "在接收机上重命名输入源（最多 14 个字符）。 15",
+              "input_name_16": "在接收机上重命名输入源（最多 14 个字符）。 16",
+              "input_name_17": "在接收机上重命名输入源（最多 14 个字符）。 17",
+              "input_name_18": "在接收机上重命名输入源（最多 14 个字符）。 18",
+              "input_name_19": "在接收机上重命名输入源（最多 14 个字符）。 19",
+              "input_name_20": "在接收机上重命名输入源（最多 14 个字符）。 20",
+              "input_name_21": "在接收机上重命名输入源（最多 14 个字符）。 21",
+              "input_name_22": "在接收机上重命名输入源（最多 14 个字符）。 22",
+              "input_name_23": "在接收机上重命名输入源（最多 14 个字符）。 23",
+              "input_name_24": "在接收机上重命名输入源（最多 14 个字符）。 24",
+              "input_name_25": "在接收机上重命名输入源（最多 14 个字符）。 25",
+              "input_name_26": "在接收机上重命名输入源（最多 14 个字符）。 26",
+              "input_name_27": "在接收机上重命名输入源（最多 14 个字符）。 27",
+              "input_name_28": "在接收机上重命名输入源（最多 14 个字符）。 28",
+              "input_name_29": "在接收机上重命名输入源（最多 14 个字符）。 29",
+              "input_name_30": "在接收机上重命名输入源（最多 14 个字符）。 30",
+              "input_name_31": "在接收机上重命名输入源（最多 14 个字符）。 31",
+              "input_name_32": "在接收机上重命名输入源（最多 14 个字符）。 32",
+              "input_name_33": "在接收机上重命名输入源（最多 14 个字符）。 33",
+              "input_name_34": "在接收机上重命名输入源（最多 14 个字符）。 34",
+              "input_name_35": "在接收机上重命名输入源（最多 14 个字符）。 35",
+              "input_name_36": "在接收机上重命名输入源（最多 14 个字符）。 36",
+              "input_name_37": "在接收机上重命名输入源（最多 14 个字符）。 37",
+              "input_name_38": "在接收机上重命名输入源（最多 14 个字符）。 38",
+              "input_name_39": "在接收机上重命名输入源（最多 14 个字符）。 39",
+              "input_name_40": "在接收机上重命名输入源（最多 14 个字符）。 40",
+              "input_name_41": "在接收机上重命名输入源（最多 14 个字符）。 41",
+              "input_name_42": "在接收机上重命名输入源（最多 14 个字符）。 42",
+              "input_name_43": "在接收机上重命名输入源（最多 14 个字符）。 43",
+              "input_name_44": "在接收机上重命名输入源（最多 14 个字符）。 44",
+              "input_name_45": "在接收机上重命名输入源（最多 14 个字符）。 45",
+              "input_name_46": "在接收机上重命名输入源（最多 14 个字符）。 46",
+              "input_name_47": "在接收机上重命名输入源（最多 14 个字符）。 47",
+              "input_name_48": "在接收机上重命名输入源（最多 14 个字符）。 48",
+              "input_name_49": "在接收机上重命名输入源（最多 14 个字符）。 49",
+              "input_name_50": "在接收机上重命名输入源（最多 14 个字符）。 50",
+              "input_name_51": "在接收机上重命名输入源（最多 14 个字符）。 51",
+              "input_name_52": "在接收机上重命名输入源（最多 14 个字符）。 52",
+              "input_name_53": "在接收机上重命名输入源（最多 14 个字符）。 53",
+              "input_name_54": "在接收机上重命名输入源（最多 14 个字符）。 54",
+              "input_name_55": "在接收机上重命名输入源（最多 14 个字符）。 55",
+              "input_name_56": "在接收机上重命名输入源（最多 14 个字符）。 56",
+              "input_name_57": "在接收机上重命名输入源（最多 14 个字符）。 57",
+              "input_name_58": "在接收机上重命名输入源（最多 14 个字符）。 58",
+              "input_name_59": "在接收机上重命名输入源（最多 14 个字符）。 59",
+              "input_name_60": "在接收机上重命名输入源（最多 14 个字符）。 60"
+            },
+            "data_description": {
+              "input_name_01": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_02": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_03": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_04": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_05": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_06": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_07": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_08": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_09": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_10": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_11": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_12": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_13": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_14": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_15": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_16": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_17": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_18": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_19": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_20": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_21": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_22": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_23": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_24": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_25": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_26": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_27": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_28": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_29": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_30": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_31": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_32": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_33": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_34": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_35": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_36": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_37": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_38": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_39": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_40": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_41": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_42": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_43": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_44": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_45": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_46": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_47": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_48": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_49": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_50": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_51": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_52": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_53": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_54": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_55": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_56": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_57": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_58": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_59": "在接收机上重命名输入源（最多 14 个字符）。",
+              "input_name_60": "在接收机上重命名输入源（最多 14 个字符）。"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Pioneer Telnet AVR"
+}

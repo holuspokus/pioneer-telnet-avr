@@ -1,0 +1,41 @@
+"""Integration constants."""
+
+DOMAIN = "pioneer_telnet_avr"
+DEFAULT_MODE_IDS = frozenset(("0013", "0112", "0101"))
+PLATFORMS = ("media_player", "light", "switch", "sensor", "select", "number", "button")
+DEFAULT_OPTIONS = {
+    "toggleOffIfActive": True,
+    "toggleListeningMode": True,
+    "toggleListeningModeLink": True,
+    "telnetSwitch": True,
+    "telnetSwitchInHa": True,
+    "minVolume": 30,
+    "maxVolume": 65,
+    "maxReconnectAttempts": 1000,
+    "maxReconnectAttemptsBeforeDiscover": 10,
+    "sendKeepAliveTimeoutMinutes": 2880,
+    "listeningMode": "0013",
+    "listeningModeOther": "0112",
+    "listeningModeFallback": "0101",
+    "inputSwitches": [],
+    "showReceiverNameInSwitches": False,
+    "hiddenInputs": [],
+    "hiddenListeningModes": [],
+    "hiddenMcaccMemories": [],
+    "hiddenZoneInputs": [],
+    "inputNames": {},
+    "listelingmodesAsTV": False,
+    "homekitLinkedVolume": True,
+    "volumeAsLight": True,
+    "additionalEntitiesInHa": False,
+    "zoneControl": False,
+    "onlyLearnedListeningModes": True,
+    "audioInfo": False,
+    "videoInfo": False,
+    "toneControls": False,
+    "mcaccControl": False,
+    "phaseControl": False,
+    "virtualSurroundBack": False,
+    "channelLevels": False,
+    "tunerControl": False,
+}

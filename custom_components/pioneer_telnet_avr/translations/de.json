@@ -1,0 +1,293 @@
+{
+  "config": {
+    "error": {
+      "cannot_connect": "Der Telnet-Port des Receivers ist nicht erreichbar."
+    },
+    "step": {
+      "choose": {
+        "title": "Pioneer Receiver auswählen",
+        "data": {
+          "receiver": "Receiver",
+          "showReceiverNameInSwitches": "Receiver-Name in Entitätsnamen anzeigen"
+        },
+        "description": "Wähle den Receiver aus, den du hinzufügen möchtest.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Der Receiver-Name erscheint in den Namen aller Entitäten dieses Receivers. Beispiel: „Apple TV VSX-923“ statt „Apple TV“. Ohne diese Option bleiben die Entitätsnamen kurz; das Receiver-Gerät selbst behält seinen Namen."
+        }
+      },
+      "manual": {
+        "title": "Receiver manuell hinzufügen",
+        "data": {
+          "host": "Hostname oder IP-Adresse",
+          "port": "Telnet-Port",
+          "showReceiverNameInSwitches": "Receiver-Name in Entitätsnamen anzeigen"
+        },
+        "description": "Gib die Adresse eines weiteren Receivers ein und wähle, ob sein Name bei den Schaltern erscheinen soll.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Der Receiver-Name erscheint in den Namen aller Entitäten dieses Receivers. Beispiel: „Apple TV VSX-923“ statt „Apple TV“. Ohne diese Option bleiben die Entitätsnamen kurz; das Receiver-Gerät selbst behält seinen Namen."
+        }
+      },
+      "discovery_confirm": {
+        "title": "{name} hinzufügen?",
+        "description": "Wähle vor dem Hinzufügen, ob der Receiver-Name bei den Schaltern erscheinen soll.",
+        "data": {
+          "showReceiverNameInSwitches": "Receiver-Name in Entitätsnamen anzeigen"
+        },
+        "data_description": {
+          "showReceiverNameInSwitches": "Der Receiver-Name erscheint in den Namen aller Entitäten dieses Receivers. Beispiel: „Apple TV VSX-923“ statt „Apple TV“. Ohne diese Option bleiben die Entitätsnamen kurz; das Receiver-Gerät selbst behält seinen Namen."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Receiver ist bereits eingerichtet",
+      "cannot_connect": "Der Telnet-Port des Receivers ist nicht erreichbar."
+    }
+  },
+  "options": {
+    "error": {
+      "too_many_inputs": "Wähle höchstens fünf Eingangsschalter aus.",
+      "invalid_listening_mode": "Die Listening-Mode-ID muss genau vier Ziffern haben."
+    },
+    "step": {
+      "init": {
+        "title": "Einstellungen für den Pioneer Receiver",
+        "sections": {
+          "inputs": {
+            "name": "Eingänge",
+            "data": {
+              "input_switches": "Eingänge als eigene Schalter",
+              "toggleOffIfActive": "Aktiven Eingang erneut drücken schaltet Receiver aus",
+              "hidden_zone_inputs": "Eingänge in den Zonen-TVs ausblenden"
+            },
+            "data_description": {
+              "input_switches": "Wähle bis zu fünf Eingänge, die je als eigener Schalter angezeigt werden.",
+              "toggleOffIfActive": "Ein erneuter Druck auf den bereits aktiven Eingang schaltet den Receiver aus (nur bei Eingängen, die als eigene Schalter angelegt wurden).",
+              "hidden_zone_inputs": "Wähle Eingänge, die nicht als Kanäle der Zonen-TVs erscheinen sollen. Der normale Receiver behält alle Eingänge."
+            }
+          },
+          "listening_modes": {
+            "name": "Listening Modes",
+            "data": {
+              "toggleListeningMode": "Listening-Mode-Schalter erstellen",
+              "toggleListeningModeLink": "Listening-Mode-Schalter beim Receiver anzeigen",
+              "listeningMode": "Primärer Listening Mode",
+              "listeningModeOther": "Alternativer Listening Mode",
+              "listeningModeFallback": "Listening Mode als Rückfalloption",
+              "listelingmodesAsTV": "Zusätzliches TV-Gerät mit Listening Modes als Kanälen",
+              "onlyLearnedListeningModes": "Ab zehn bestätigten Listening Modes nur gelernte Modi anbieten",
+              "resetListeningModes": "Listening-Mode-Liste beim Speichern zurücksetzen",
+              "excluded_listening_modes": "Listening Modes ausschliessen"
+            },
+            "data_description": {
+              "toggleListeningMode": "Erstellt den zusätzlichen Audio-Schalter zum Wechseln zwischen Listening Modes.",
+              "toggleListeningModeLink": "Verknüpft den Listening-Mode-Schalter mit dem Haupt-TV in der Pioneer-Bridge, sofern das TV aktiviert ist und die Zusatzgeräte nicht in Home Assistant angezeigt werden.",
+              "listeningMode": "Wähle den primären Listening Mode (Standard 0013). Bei weniger als zehn gelernten Modi stehen alle bekannten Modi zur Wahl; möglicherweise unterstützt der Receiver nicht jeden davon.",
+              "listeningModeOther": "Wähle den alternativen Listening Mode (Standard 0112). Bei weniger als zehn gelernten Modi stehen alle bekannten Modi zur Wahl.",
+              "listeningModeFallback": "Wähle den Ersatzmodus, falls der primäre nicht unterstützt wird (Standard 0101). Bei weniger als zehn gelernten Modi stehen alle bekannten Modi zur Wahl.",
+              "listelingmodesAsTV": "Erstellt ein eigenes HomeKit-TV für Listening Modes. Die Kanäle lassen sich in Apple Home auswählen; in Home Assistant erscheint kein zusätzliches TV-Gerät.",
+              "onlyLearnedListeningModes": "Ab zehn bestätigten Modi zeigt der Receiver-Sound-Modus in Home Assistant bei aktivierter Option nur bestätigte Modi und Standardwerte. Das HomeKit-TV bietet weiterhin alle Modi zur manuellen Kanalauswahl an. Speichern und die Einstellungen erneut öffnen, um die drei Auswahllisten zu aktualisieren.",
+              "resetListeningModes": "Löscht beim Speichern einmalig die automatisch gelernten Modi. Die manuelle HomeKit-Kanalauswahl bleibt erhalten.",
+              "excluded_listening_modes": "Nach zweimaligem E06 wird ein Listening Mode hier automatisch ausgeschlossen. Du kannst Modi auch selbst ausschliessen oder durch Abwählen wieder freigeben. In Home Assistant entfallen ausgeschlossene Modi; in Apple Home bleiben ihre Kanäle vorhanden, aber ausgeblendet."
+            }
+          },
+          "homekit": {
+            "name": "HomeKit und Entitäten",
+            "data": {
+              "homekitLinkedVolume": "HomeKit-TV mit integrierter Volume-Lampe erstellen",
+              "volumeAsLight": "Lautstärke zusätzlich als Lampe anzeigen",
+              "additionalEntitiesInHa": "Zusätzliche Entitäten in Home Assistant anzeigen und HomeKit Bridge verwenden"
+            },
+            "data_description": {
+              "homekitLinkedVolume": "Erstellt ein HomeKit-TV mit integrierter Volume-Lampe in der gemeinsamen Pioneer-Bridge. Der QR-Code für diese Bridge erscheint als Benachrichtigung. Schließe den normalen Receiver-Mediaplayer in der HA HomeKit Bridge aus, damit er nicht doppelt erscheint.",
+              "volumeAsLight": "Erstellt eine zusätzliche Lautstärke-Lampe. Die neue Checkbox bestimmt, ob sie in Home Assistant oder direkt in der gemeinsamen Pioneer-Bridge erscheint.",
+              "additionalEntitiesInHa": "Eingänge als eigene Schalter, die einzelne Volume-Lampe und der Listening-Mode-Schalter erscheinen in Home Assistant und können über die HomeKit Bridge veröffentlicht werden. Ohne diese Option erscheinen sie nicht in Home Assistant, sondern in der gemeinsamen Pioneer-HomeKit-Bridge."
+            }
+          },
+          "volume_zones": {
+            "name": "Lautstärke und Zonen",
+            "data": {
+              "minVolume": "Minimale Lautstärke",
+              "maxVolume": "Maximale Lautstärke",
+              "zoneControl": "Zonensteuerung aktivieren"
+            },
+            "data_description": {
+              "minVolume": "Untergrenze der eigenen Lautstärke-Lampe (0–100); der Regler stellt sie als 0 % dar.",
+              "maxVolume": "Obergrenze der eigenen Lautstärke-Lampe (0–100); der Regler stellt sie als 100 % dar.",
+              "zoneControl": "Fragt Zone 2 und Zone 3 ab. Erkannte Zonen erscheinen als eigenes TV-Gerät mit Ein/Aus-Schalter und Lautstärke-Lampe."
+            }
+          },
+          "receiver_features": {
+            "name": "Weitere Receiver-Funktionen",
+            "data": {
+              "hidden_mcacc_memories": "MCACC-Speicher im TV ausblenden",
+              "audioInfo": "Audio-Informationen anzeigen",
+              "videoInfo": "Video-Informationen anzeigen",
+              "toneControls": "Tone, Bass und Treble steuern",
+              "mcaccControl": "MCACC als eigenes TV-Gerät",
+              "phaseControl": "Phase Control steuern",
+              "virtualSurroundBack": "Virtual Surround Back steuern",
+              "channelLevels": "Kanalpegel steuern",
+              "tunerControl": "Tuner steuern"
+            },
+            "data_description": {
+              "hidden_mcacc_memories": "Wähle die MCACC-Speicher, die nicht als TV-Kanäle erscheinen sollen.",
+              "audioInfo": "Liest den Audio-Status mit ?AST über Telnet aus.",
+              "videoInfo": "Liest den Video-Status mit ?VST über Telnet aus.",
+              "toneControls": "Erstellt Tone-Schalter und Bass-/Treble-Regler, falls der Receiver antwortet.",
+              "mcaccControl": "Erstellt ein eigenes HomeKit-TV mit MCACC-Speichern 1 bis 6 als auswählbaren Kanälen. In Home Assistant erscheint kein zusätzliches TV-Gerät.",
+              "phaseControl": "Erstellt ein eigenes TV-Gerät mit Off, On und Full Band als Kanälen, falls verfügbar.",
+              "virtualSurroundBack": "Erstellt einen Schalter, falls der Receiver ?VSB unterstützt.",
+              "channelLevels": "Zeigt nur Lautsprecherkanäle, die auf die jeweilige Pegelabfrage antworten.",
+              "tunerControl": "Frequenz und Preset sowie Tasten für Band, Klasse und Auf/Ab, falls unterstützt."
+            }
+          },
+          "connection": {
+            "name": "Verbindung",
+            "data": {
+              "telnetSwitch": "Telnet-Schalter erstellen",
+              "maxReconnectAttempts": "Maximale Verbindungsversuche",
+              "maxReconnectAttemptsBeforeDiscover": "Nach so vielen Fehlversuchen erneut suchen",
+              "sendKeepAliveTimeoutMinutes": "Telnet-Verbindung nach Ausschalten beibehalten (Minuten)",
+              "telnetSwitchInHa": "Telnet connection-Schalter in Home Assistant"
+            },
+            "data_description": {
+              "telnetSwitch": "Erstellt einen eigenen Schalter für die Telnet-Verbindung. Beim Ausschalten des Receivers bleibt die Verbindung für die unten eingestellte Zeit bestehen.",
+              "maxReconnectAttempts": "Anzahl Verbindungsversuche, bevor die Integration aufgibt.",
+              "maxReconnectAttemptsBeforeDiscover": "Sucht nach dieser Anzahl fehlgeschlagener Verbindungsversuche erneut nach dem Receiver.",
+              "sendKeepAliveTimeoutMinutes": "So lange bleibt die Telnet-Verbindung nach dem Ausschalten aktiv, angegeben in Minuten.",
+              "telnetSwitchInHa": "Aktiviert: Der Telnet connection-Schalter wird in Home Assistant angezeigt. Deaktiviert: Er erscheint nur in der gemeinsamen Pioneer-HomeKit-Bridge."
+            }
+          },
+          "input_names": {
+            "name": "Eingänge umbenennen",
+            "data": {
+              "input_name_01": "Input Name auf Receiver umbenennen (01)",
+              "input_name_02": "Input Name auf Receiver umbenennen (02)",
+              "input_name_03": "Input Name auf Receiver umbenennen (03)",
+              "input_name_04": "Input Name auf Receiver umbenennen (04)",
+              "input_name_05": "Input Name auf Receiver umbenennen (05)",
+              "input_name_06": "Input Name auf Receiver umbenennen (06)",
+              "input_name_07": "Input Name auf Receiver umbenennen (07)",
+              "input_name_08": "Input Name auf Receiver umbenennen (08)",
+              "input_name_09": "Input Name auf Receiver umbenennen (09)",
+              "input_name_10": "Input Name auf Receiver umbenennen (10)",
+              "input_name_11": "Input Name auf Receiver umbenennen (11)",
+              "input_name_12": "Input Name auf Receiver umbenennen (12)",
+              "input_name_13": "Input Name auf Receiver umbenennen (13)",
+              "input_name_14": "Input Name auf Receiver umbenennen (14)",
+              "input_name_15": "Input Name auf Receiver umbenennen (15)",
+              "input_name_16": "Input Name auf Receiver umbenennen (16)",
+              "input_name_17": "Input Name auf Receiver umbenennen (17)",
+              "input_name_18": "Input Name auf Receiver umbenennen (18)",
+              "input_name_19": "Input Name auf Receiver umbenennen (19)",
+              "input_name_20": "Input Name auf Receiver umbenennen (20)",
+              "input_name_21": "Input Name auf Receiver umbenennen (21)",
+              "input_name_22": "Input Name auf Receiver umbenennen (22)",
+              "input_name_23": "Input Name auf Receiver umbenennen (23)",
+              "input_name_24": "Input Name auf Receiver umbenennen (24)",
+              "input_name_25": "Input Name auf Receiver umbenennen (25)",
+              "input_name_26": "Input Name auf Receiver umbenennen (26)",
+              "input_name_27": "Input Name auf Receiver umbenennen (27)",
+              "input_name_28": "Input Name auf Receiver umbenennen (28)",
+              "input_name_29": "Input Name auf Receiver umbenennen (29)",
+              "input_name_30": "Input Name auf Receiver umbenennen (30)",
+              "input_name_31": "Input Name auf Receiver umbenennen (31)",
+              "input_name_32": "Input Name auf Receiver umbenennen (32)",
+              "input_name_33": "Input Name auf Receiver umbenennen (33)",
+              "input_name_34": "Input Name auf Receiver umbenennen (34)",
+              "input_name_35": "Input Name auf Receiver umbenennen (35)",
+              "input_name_36": "Input Name auf Receiver umbenennen (36)",
+              "input_name_37": "Input Name auf Receiver umbenennen (37)",
+              "input_name_38": "Input Name auf Receiver umbenennen (38)",
+              "input_name_39": "Input Name auf Receiver umbenennen (39)",
+              "input_name_40": "Input Name auf Receiver umbenennen (40)",
+              "input_name_41": "Input Name auf Receiver umbenennen (41)",
+              "input_name_42": "Input Name auf Receiver umbenennen (42)",
+              "input_name_43": "Input Name auf Receiver umbenennen (43)",
+              "input_name_44": "Input Name auf Receiver umbenennen (44)",
+              "input_name_45": "Input Name auf Receiver umbenennen (45)",
+              "input_name_46": "Input Name auf Receiver umbenennen (46)",
+              "input_name_47": "Input Name auf Receiver umbenennen (47)",
+              "input_name_48": "Input Name auf Receiver umbenennen (48)",
+              "input_name_49": "Input Name auf Receiver umbenennen (49)",
+              "input_name_50": "Input Name auf Receiver umbenennen (50)",
+              "input_name_51": "Input Name auf Receiver umbenennen (51)",
+              "input_name_52": "Input Name auf Receiver umbenennen (52)",
+              "input_name_53": "Input Name auf Receiver umbenennen (53)",
+              "input_name_54": "Input Name auf Receiver umbenennen (54)",
+              "input_name_55": "Input Name auf Receiver umbenennen (55)",
+              "input_name_56": "Input Name auf Receiver umbenennen (56)",
+              "input_name_57": "Input Name auf Receiver umbenennen (57)",
+              "input_name_58": "Input Name auf Receiver umbenennen (58)",
+              "input_name_59": "Input Name auf Receiver umbenennen (59)",
+              "input_name_60": "Input Name auf Receiver umbenennen (60)"
+            },
+            "data_description": {
+              "input_name_01": "Input Name auf Receiver umbenennen",
+              "input_name_02": "Input Name auf Receiver umbenennen",
+              "input_name_03": "Input Name auf Receiver umbenennen",
+              "input_name_04": "Input Name auf Receiver umbenennen",
+              "input_name_05": "Input Name auf Receiver umbenennen",
+              "input_name_06": "Input Name auf Receiver umbenennen",
+              "input_name_07": "Input Name auf Receiver umbenennen",
+              "input_name_08": "Input Name auf Receiver umbenennen",
+              "input_name_09": "Input Name auf Receiver umbenennen",
+              "input_name_10": "Input Name auf Receiver umbenennen",
+              "input_name_11": "Input Name auf Receiver umbenennen",
+              "input_name_12": "Input Name auf Receiver umbenennen",
+              "input_name_13": "Input Name auf Receiver umbenennen",
+              "input_name_14": "Input Name auf Receiver umbenennen",
+              "input_name_15": "Input Name auf Receiver umbenennen",
+              "input_name_16": "Input Name auf Receiver umbenennen",
+              "input_name_17": "Input Name auf Receiver umbenennen",
+              "input_name_18": "Input Name auf Receiver umbenennen",
+              "input_name_19": "Input Name auf Receiver umbenennen",
+              "input_name_20": "Input Name auf Receiver umbenennen",
+              "input_name_21": "Input Name auf Receiver umbenennen",
+              "input_name_22": "Input Name auf Receiver umbenennen",
+              "input_name_23": "Input Name auf Receiver umbenennen",
+              "input_name_24": "Input Name auf Receiver umbenennen",
+              "input_name_25": "Input Name auf Receiver umbenennen",
+              "input_name_26": "Input Name auf Receiver umbenennen",
+              "input_name_27": "Input Name auf Receiver umbenennen",
+              "input_name_28": "Input Name auf Receiver umbenennen",
+              "input_name_29": "Input Name auf Receiver umbenennen",
+              "input_name_30": "Input Name auf Receiver umbenennen",
+              "input_name_31": "Input Name auf Receiver umbenennen",
+              "input_name_32": "Input Name auf Receiver umbenennen",
+              "input_name_33": "Input Name auf Receiver umbenennen",
+              "input_name_34": "Input Name auf Receiver umbenennen",
+              "input_name_35": "Input Name auf Receiver umbenennen",
+              "input_name_36": "Input Name auf Receiver umbenennen",
+              "input_name_37": "Input Name auf Receiver umbenennen",
+              "input_name_38": "Input Name auf Receiver umbenennen",
+              "input_name_39": "Input Name auf Receiver umbenennen",
+              "input_name_40": "Input Name auf Receiver umbenennen",
+              "input_name_41": "Input Name auf Receiver umbenennen",
+              "input_name_42": "Input Name auf Receiver umbenennen",
+              "input_name_43": "Input Name auf Receiver umbenennen",
+              "input_name_44": "Input Name auf Receiver umbenennen",
+              "input_name_45": "Input Name auf Receiver umbenennen",
+              "input_name_46": "Input Name auf Receiver umbenennen",
+              "input_name_47": "Input Name auf Receiver umbenennen",
+              "input_name_48": "Input Name auf Receiver umbenennen",
+              "input_name_49": "Input Name auf Receiver umbenennen",
+              "input_name_50": "Input Name auf Receiver umbenennen",
+              "input_name_51": "Input Name auf Receiver umbenennen",
+              "input_name_52": "Input Name auf Receiver umbenennen",
+              "input_name_53": "Input Name auf Receiver umbenennen",
+              "input_name_54": "Input Name auf Receiver umbenennen",
+              "input_name_55": "Input Name auf Receiver umbenennen",
+              "input_name_56": "Input Name auf Receiver umbenennen",
+              "input_name_57": "Input Name auf Receiver umbenennen",
+              "input_name_58": "Input Name auf Receiver umbenennen",
+              "input_name_59": "Input Name auf Receiver umbenennen",
+              "input_name_60": "Input Name auf Receiver umbenennen"
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Pioneer Telnet AVR"
+}

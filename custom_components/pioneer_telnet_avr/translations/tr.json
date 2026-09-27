@@ -1,0 +1,293 @@
+{
+  "config": {
+    "error": {
+      "cannot_connect": "Alıcının Telnet bağlantı noktasına erişilemiyor."
+    },
+    "step": {
+      "choose": {
+        "title": "Pioneer alıcısını seç",
+        "data": {
+          "receiver": "Receiver",
+          "showReceiverNameInSwitches": "Varlık adlarında alıcı adını göster"
+        },
+        "description": "Eklemek istediğiniz alıcıyı seçin.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Bu alıcının tüm varlık adlarına alıcının adını ekler. Örneğin “Apple TV” yerine “Apple TV VSX-923”. Kapatıldığında varlık adları kısa kalır; alıcı cihazın adı değişmez."
+        }
+      },
+      "manual": {
+        "title": "Alıcıyı elle ekle",
+        "data": {
+          "host": "Host",
+          "port": "Telnet port",
+          "showReceiverNameInSwitches": "Varlık adlarında alıcı adını göster"
+        },
+        "description": "Başka bir alıcının adresini girin ve adının anahtar adlarında görünüp görünmeyeceğini seçin.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Bu alıcının tüm varlık adlarına alıcının adını ekler. Örneğin “Apple TV” yerine “Apple TV VSX-923”. Kapatıldığında varlık adları kısa kalır; alıcı cihazın adı değişmez."
+        }
+      },
+      "discovery_confirm": {
+        "title": "{name} eklensin mi?",
+        "description": "Alıcıyı eklemeden önce adının anahtar adlarında görünüp görünmeyeceğini seçin.",
+        "data": {
+          "showReceiverNameInSwitches": "Varlık adlarında alıcı adını göster"
+        },
+        "data_description": {
+          "showReceiverNameInSwitches": "Bu alıcının tüm varlık adlarına alıcının adını ekler. Örneğin “Apple TV” yerine “Apple TV VSX-923”. Kapatıldığında varlık adları kısa kalır; alıcı cihazın adı değişmez."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Alıcı zaten yapılandırılmış.",
+      "cannot_connect": "Alıcının Telnet bağlantı noktasına erişilemiyor."
+    }
+  },
+  "options": {
+    "error": {
+      "too_many_inputs": "En fazla beş giriş seçin.",
+      "invalid_listening_mode": "Mod kimliği tam dört rakam olmalıdır."
+    },
+    "step": {
+      "init": {
+        "title": "Pioneer alıcı ayarları",
+        "sections": {
+          "inputs": {
+            "name": "Girişler",
+            "data": {
+              "input_switches": "Girişleri ayrı anahtarlar olarak göster",
+              "toggleOffIfActive": "Etkin girişe tekrar basınca alıcıyı kapat",
+              "hidden_zone_inputs": "Girişleri bölge TV’lerinden gizle"
+            },
+            "data_description": {
+              "input_switches": "En fazla beş girişin her biri ayrı anahtar olur.",
+              "toggleOffIfActive": "Etkin girişe yeniden basmak alıcıyı kapatır (yalnızca ayrı anahtar olarak oluşturulan girişler için).",
+              "hidden_zone_inputs": "Bölge TV’lerinde görünmeyecek girişleri seçin. Ana alıcı tüm girişleri korur."
+            }
+          },
+          "listening_modes": {
+            "name": "Dinleme modları",
+            "data": {
+              "toggleListeningMode": "Dinleme modu anahtarı oluştur",
+              "toggleListeningModeLink": "Dinleme modunu alıcıyla grupla",
+              "listeningMode": "Birincil dinleme modu",
+              "listeningModeOther": "Alternatif dinleme modu",
+              "listeningModeFallback": "Yedek dinleme modu",
+              "listelingmodesAsTV": "Dinleme modları için ek TV",
+              "onlyLearnedListeningModes": "On mod doğrulandıktan sonra öğrenilenlerle sınırla",
+              "resetListeningModes": "Kaydederken dinleme modu listesini sıfırla",
+              "excluded_listening_modes": "Dinleme modlarını hariç tut"
+            },
+            "data_description": {
+              "toggleListeningMode": "Dinleme modu anahtarı oluştur.",
+              "toggleListeningModeLink": "Etkinse dinleme modu anahtarını ortak Pioneer köprüsündeki ana TV’ye bağlar.",
+              "listeningMode": "Birincil dinleme modu.",
+              "listeningModeOther": "Alternatif dinleme modu.",
+              "listeningModeFallback": "Yedek dinleme modu.",
+              "listelingmodesAsTV": "Dinleme modları için ayrı bir HomeKit TV oluşturur. Kanalları Ev uygulamasında seçebilirsiniz; Home Assistant içinde ek TV görünmez.",
+              "onlyLearnedListeningModes": "Onaylanan mod sayısı ona ulaştığında bu seçenek, Home Assistant içindeki alıcı ses modunu onaylanan modlar ve varsayılanlarla sınırlar. HomeKit TV, elle kanal seçimi için tüm modları sunmaya devam eder. Üç listeyi yenilemek için kaydedip ayarları yeniden açın.",
+              "resetListeningModes": "Kaydederken otomatik öğrenilen modları bir kez siler. Elle ayarlanan HomeKit kanal görünürlüğü korunur.",
+              "excluded_listening_modes": "Bir mod iki E06 yanıtından sonra otomatik olarak hariç tutulur. Buradan modları elle de hariç tutabilir veya işaretini kaldırarak geri yükleyebilirsiniz. Mod Home Assistant’ta görünmez; Apple Home kanalı kalır ancak gizlenir."
+            }
+          },
+          "homekit": {
+            "name": "HomeKit ve varlıklar",
+            "data": {
+              "homekitLinkedVolume": "Bağlı ses ışığı olan HomeKit TV oluştur",
+              "volumeAsLight": "Ses düzeyini ışık olarak da göster",
+              "additionalEntitiesInHa": "Ek varlıkları Home Assistant içinde göster ve HomeKit Bridge kullan"
+            },
+            "data_description": {
+              "homekitLinkedVolume": "Ortak Pioneer köprüsünde ses ışığı bulunan bir TV oluşturur. Tüm köprü için tek bir eşleştirme kodu gösterilir.",
+              "volumeAsLight": "Ayrı bir ses ışığı oluşturur. Yeni seçenek bunun Home Assistant içinde mi yoksa ortak Pioneer köprüsünde mi görüneceğini belirler.",
+              "additionalEntitiesInHa": "Ayrı giriş anahtarları, bağımsız ses ışığı ve dinleme modu anahtarı Home Assistant içinde görünür ve HomeKit Bridge ile paylaşılabilir. Kapalıysa yalnızca ortak Pioneer HomeKit köprüsünde görünür."
+            }
+          },
+          "volume_zones": {
+            "name": "Ses ve bölgeler",
+            "data": {
+              "minVolume": "En düşük ses",
+              "maxVolume": "En yüksek ses",
+              "zoneControl": "Bölge denetimini etkinleştir"
+            },
+            "data_description": {
+              "minVolume": "Ses ışığı için en düşük ses.",
+              "maxVolume": "Ses ışığı için en yüksek ses.",
+              "zoneControl": "Bölge denetimini etkinleştir."
+            }
+          },
+          "receiver_features": {
+            "name": "Diğer alıcı özellikleri",
+            "data": {
+              "audioInfo": "Ses bilgisini göster",
+              "videoInfo": "Video bilgisini göster",
+              "toneControls": "Ton, bas ve tizi denetle",
+              "mcaccControl": "MCACC için ayrı TV",
+              "phaseControl": "Fazı denetle",
+              "virtualSurroundBack": "Sanal arka surround sesini denetle",
+              "channelLevels": "Kanal seviyelerini denetle",
+              "tunerControl": "Radyoyu denetle",
+              "hidden_mcacc_memories": "MCACC belleklerini TV’den gizle"
+            },
+            "data_description": {
+              "audioInfo": "Ses bilgisini göster. Yalnızca Telnet üzerinden yanıt alınırsa oluşturulur.",
+              "videoInfo": "Video bilgisini göster. Yalnızca Telnet üzerinden yanıt alınırsa oluşturulur.",
+              "toneControls": "Ton, bas ve tizi denetle. Yalnızca Telnet üzerinden yanıt alınırsa oluşturulur.",
+              "mcaccControl": "MCACC bellekleri 1 ile 6 arasını seçilebilir kanallar olarak sunan ayrı bir HomeKit TV oluşturur. Home Assistant içinde ek TV görünmez.",
+              "phaseControl": "Off, On ve Full Band kanallı ayrı bir TV cihazı.",
+              "virtualSurroundBack": "Sanal arka surround sesini denetle. Yalnızca Telnet üzerinden yanıt alınırsa oluşturulur.",
+              "channelLevels": "Kanal seviyelerini denetle. Yalnızca Telnet üzerinden yanıt alınırsa oluşturulur.",
+              "tunerControl": "Radyoyu denetle. Yalnızca Telnet üzerinden yanıt alınırsa oluşturulur.",
+              "hidden_mcacc_memories": "TV’de görünmeyecek MCACC belleklerini seçin."
+            }
+          },
+          "connection": {
+            "name": "Bağlantı",
+            "data": {
+              "telnetSwitch": "Telnet bağlantı anahtarı oluştur",
+              "maxReconnectAttempts": "En fazla yeniden bağlanma denemesi",
+              "maxReconnectAttemptsBeforeDiscover": "Bu kadar hatadan sonra yeniden keşfet",
+              "sendKeepAliveTimeoutMinutes": "Kapatıldıktan sonra bağlantı süresi (dakika)",
+              "telnetSwitchInHa": "Telnet bağlantı anahtarı Home Assistant içinde"
+            },
+            "data_description": {
+              "telnetSwitch": "Telnet bağlantı anahtarı oluştur.",
+              "maxReconnectAttempts": "En fazla yeniden bağlanma denemesi.",
+              "maxReconnectAttemptsBeforeDiscover": "Bu kadar hatadan sonra yeniden keşfet.",
+              "sendKeepAliveTimeoutMinutes": "Kapatıldıktan sonra bağlantı süresi (dakika).",
+              "telnetSwitchInHa": "Etkinse Telnet bağlantı anahtarı Home Assistant içinde görünür. Kapalıysa yalnızca ortak Pioneer HomeKit köprüsünde görünür."
+            }
+          },
+          "input_names": {
+            "name": "Girişleri yeniden adlandır",
+            "data": {
+              "input_name_01": "Alıcıdaki giriş adını değiştirin 01",
+              "input_name_02": "Alıcıdaki giriş adını değiştirin 02",
+              "input_name_03": "Alıcıdaki giriş adını değiştirin 03",
+              "input_name_04": "Alıcıdaki giriş adını değiştirin 04",
+              "input_name_05": "Alıcıdaki giriş adını değiştirin 05",
+              "input_name_06": "Alıcıdaki giriş adını değiştirin 06",
+              "input_name_07": "Alıcıdaki giriş adını değiştirin 07",
+              "input_name_08": "Alıcıdaki giriş adını değiştirin 08",
+              "input_name_09": "Alıcıdaki giriş adını değiştirin 09",
+              "input_name_10": "Alıcıdaki giriş adını değiştirin 10",
+              "input_name_11": "Alıcıdaki giriş adını değiştirin 11",
+              "input_name_12": "Alıcıdaki giriş adını değiştirin 12",
+              "input_name_13": "Alıcıdaki giriş adını değiştirin 13",
+              "input_name_14": "Alıcıdaki giriş adını değiştirin 14",
+              "input_name_15": "Alıcıdaki giriş adını değiştirin 15",
+              "input_name_16": "Alıcıdaki giriş adını değiştirin 16",
+              "input_name_17": "Alıcıdaki giriş adını değiştirin 17",
+              "input_name_18": "Alıcıdaki giriş adını değiştirin 18",
+              "input_name_19": "Alıcıdaki giriş adını değiştirin 19",
+              "input_name_20": "Alıcıdaki giriş adını değiştirin 20",
+              "input_name_21": "Alıcıdaki giriş adını değiştirin 21",
+              "input_name_22": "Alıcıdaki giriş adını değiştirin 22",
+              "input_name_23": "Alıcıdaki giriş adını değiştirin 23",
+              "input_name_24": "Alıcıdaki giriş adını değiştirin 24",
+              "input_name_25": "Alıcıdaki giriş adını değiştirin 25",
+              "input_name_26": "Alıcıdaki giriş adını değiştirin 26",
+              "input_name_27": "Alıcıdaki giriş adını değiştirin 27",
+              "input_name_28": "Alıcıdaki giriş adını değiştirin 28",
+              "input_name_29": "Alıcıdaki giriş adını değiştirin 29",
+              "input_name_30": "Alıcıdaki giriş adını değiştirin 30",
+              "input_name_31": "Alıcıdaki giriş adını değiştirin 31",
+              "input_name_32": "Alıcıdaki giriş adını değiştirin 32",
+              "input_name_33": "Alıcıdaki giriş adını değiştirin 33",
+              "input_name_34": "Alıcıdaki giriş adını değiştirin 34",
+              "input_name_35": "Alıcıdaki giriş adını değiştirin 35",
+              "input_name_36": "Alıcıdaki giriş adını değiştirin 36",
+              "input_name_37": "Alıcıdaki giriş adını değiştirin 37",
+              "input_name_38": "Alıcıdaki giriş adını değiştirin 38",
+              "input_name_39": "Alıcıdaki giriş adını değiştirin 39",
+              "input_name_40": "Alıcıdaki giriş adını değiştirin 40",
+              "input_name_41": "Alıcıdaki giriş adını değiştirin 41",
+              "input_name_42": "Alıcıdaki giriş adını değiştirin 42",
+              "input_name_43": "Alıcıdaki giriş adını değiştirin 43",
+              "input_name_44": "Alıcıdaki giriş adını değiştirin 44",
+              "input_name_45": "Alıcıdaki giriş adını değiştirin 45",
+              "input_name_46": "Alıcıdaki giriş adını değiştirin 46",
+              "input_name_47": "Alıcıdaki giriş adını değiştirin 47",
+              "input_name_48": "Alıcıdaki giriş adını değiştirin 48",
+              "input_name_49": "Alıcıdaki giriş adını değiştirin 49",
+              "input_name_50": "Alıcıdaki giriş adını değiştirin 50",
+              "input_name_51": "Alıcıdaki giriş adını değiştirin 51",
+              "input_name_52": "Alıcıdaki giriş adını değiştirin 52",
+              "input_name_53": "Alıcıdaki giriş adını değiştirin 53",
+              "input_name_54": "Alıcıdaki giriş adını değiştirin 54",
+              "input_name_55": "Alıcıdaki giriş adını değiştirin 55",
+              "input_name_56": "Alıcıdaki giriş adını değiştirin 56",
+              "input_name_57": "Alıcıdaki giriş adını değiştirin 57",
+              "input_name_58": "Alıcıdaki giriş adını değiştirin 58",
+              "input_name_59": "Alıcıdaki giriş adını değiştirin 59",
+              "input_name_60": "Alıcıdaki giriş adını değiştirin 60"
+            },
+            "data_description": {
+              "input_name_01": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_02": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_03": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_04": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_05": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_06": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_07": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_08": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_09": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_10": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_11": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_12": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_13": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_14": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_15": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_16": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_17": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_18": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_19": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_20": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_21": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_22": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_23": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_24": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_25": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_26": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_27": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_28": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_29": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_30": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_31": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_32": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_33": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_34": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_35": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_36": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_37": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_38": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_39": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_40": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_41": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_42": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_43": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_44": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_45": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_46": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_47": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_48": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_49": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_50": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_51": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_52": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_53": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_54": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_55": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_56": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_57": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_58": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_59": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter).",
+              "input_name_60": "Alıcıdaki giriş adını değiştirin (en fazla 14 karakter)."
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Pioneer Telnet AVR"
+}

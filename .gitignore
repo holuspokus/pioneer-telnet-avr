@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+
+# Local Home Assistant state and logs
+.storage/
+home-assistant.log*
+*.log
+
+# Local environment and editor files
+.env
+.env.*
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Generated distributions
+dist/
+build/
+*.zip

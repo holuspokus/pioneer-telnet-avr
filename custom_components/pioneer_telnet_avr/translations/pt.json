@@ -1,0 +1,293 @@
+{
+  "config": {
+    "error": {
+      "cannot_connect": "Não é possível aceder à porta Telnet do recetor."
+    },
+    "step": {
+      "choose": {
+        "title": "Selecionar recetor Pioneer",
+        "data": {
+          "receiver": "Receiver",
+          "showReceiverNameInSwitches": "Mostrar o nome do recetor nas entidades"
+        },
+        "description": "Selecione o receptor que pretende adicionar.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Inclui o nome do recetor nos nomes de todas as suas entidades. Por exemplo, «Apple TV VSX-923» em vez de «Apple TV». Caso contrário, os nomes ficam curtos; o dispositivo recetor mantém o seu nome."
+        }
+      },
+      "manual": {
+        "title": "Adicionar receptor manualmente",
+        "data": {
+          "host": "Host",
+          "port": "Telnet port",
+          "showReceiverNameInSwitches": "Mostrar o nome do recetor nas entidades"
+        },
+        "description": "Introduza o endereço de outro receptor e escolha se o nome deve aparecer nos interruptores.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Inclui o nome do recetor nos nomes de todas as suas entidades. Por exemplo, «Apple TV VSX-923» em vez de «Apple TV». Caso contrário, os nomes ficam curtos; o dispositivo recetor mantém o seu nome."
+        }
+      },
+      "discovery_confirm": {
+        "title": "Adicionar {name}?",
+        "description": "Escolha se o nome do receptor deve aparecer nos interruptores antes de o adicionar.",
+        "data": {
+          "showReceiverNameInSwitches": "Mostrar o nome do recetor nas entidades"
+        },
+        "data_description": {
+          "showReceiverNameInSwitches": "Inclui o nome do recetor nos nomes de todas as suas entidades. Por exemplo, «Apple TV VSX-923» em vez de «Apple TV». Caso contrário, os nomes ficam curtos; o dispositivo recetor mantém o seu nome."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "O recetor já está configurado.",
+      "cannot_connect": "Não é possível aceder à porta Telnet do recetor."
+    }
+  },
+  "options": {
+    "error": {
+      "too_many_inputs": "Selecione no máximo cinco entradas.",
+      "invalid_listening_mode": "O ID do modo deve ter quatro dígitos."
+    },
+    "step": {
+      "init": {
+        "title": "Opções do recetor Pioneer",
+        "sections": {
+          "inputs": {
+            "name": "Entradas",
+            "data": {
+              "input_switches": "Entradas como interruptores separados",
+              "toggleOffIfActive": "Desligar ao premir a entrada ativa",
+              "hidden_zone_inputs": "Ocultar entradas nas TVs das zonas"
+            },
+            "data_description": {
+              "input_switches": "Até cinco entradas, cada uma como interruptor.",
+              "toggleOffIfActive": "Premir novamente a entrada ativa desliga o recetor (apenas para entradas criadas como interruptores separados).",
+              "hidden_zone_inputs": "Selecione as entradas a ocultar nas TVs das zonas. O recetor principal mantém todas as entradas."
+            }
+          },
+          "listening_modes": {
+            "name": "Modos de audição",
+            "data": {
+              "toggleListeningMode": "Criar interruptor de modo de audição",
+              "toggleListeningModeLink": "Agrupar modo de audição com o recetor",
+              "listeningMode": "Modo de audição principal",
+              "listeningModeOther": "Modo de audição alternativo",
+              "listeningModeFallback": "Modo de audição de reserva",
+              "listelingmodesAsTV": "TV adicional para modos de escuta",
+              "onlyLearnedListeningModes": "Limitar aos modos aprendidos após dez confirmações",
+              "resetListeningModes": "Repor modos ao guardar",
+              "excluded_listening_modes": "Excluir modos de audição"
+            },
+            "data_description": {
+              "toggleListeningMode": "Criar interruptor de modo de audição.",
+              "toggleListeningModeLink": "Associa o interruptor do modo de audição à TV principal da bridge Pioneer, quando ativa.",
+              "listeningMode": "Modo de audição principal.",
+              "listeningModeOther": "Modo de audição alternativo.",
+              "listeningModeFallback": "Modo de audição de reserva.",
+              "listelingmodesAsTV": "Cria uma TV HomeKit separada para os modos de escuta. Selecione os canais na app Casa; nenhuma TV adicional aparece no Home Assistant.",
+              "onlyLearnedListeningModes": "Após dez modos confirmados, esta opção limita o modo de som do recetor no Home Assistant aos modos confirmados e predefinidos. A TV HomeKit mantém todos os modos para escolher canais manualmente. Guarde e reabra as definições para atualizar as três listas.",
+              "resetListeningModes": "Limpa uma vez os modos aprendidos automaticamente ao guardar. A visibilidade manual dos canais HomeKit é preservada.",
+              "excluded_listening_modes": "Um modo é excluído automaticamente após duas respostas E06. Também podes excluí-lo aqui ou restaurá-lo desmarcando-o. Desaparece do Home Assistant; o canal permanece no Apple Home, mas oculto."
+            }
+          },
+          "homekit": {
+            "name": "HomeKit e entidades",
+            "data": {
+              "homekitLinkedVolume": "Criar TV HomeKit com luz de volume associada",
+              "volumeAsLight": "Mostrar também o volume como luz",
+              "additionalEntitiesInHa": "Mostrar entidades adicionais no Home Assistant e usar HomeKit Bridge"
+            },
+            "data_description": {
+              "homekitLinkedVolume": "Cria uma TV com luz de volume integrada na bridge Pioneer partilhada. É apresentado um único código de emparelhamento para a bridge.",
+              "volumeAsLight": "Cria uma luz de volume separada. A nova opção determina se aparece no Home Assistant ou na bridge Pioneer partilhada.",
+              "additionalEntitiesInHa": "Os interruptores de entradas, a luz de volume separada e o interruptor do modo de audição aparecem no Home Assistant e podem ser publicados pela HomeKit Bridge. Caso contrário, aparecem apenas na bridge Pioneer partilhada."
+            }
+          },
+          "volume_zones": {
+            "name": "Volume e zonas",
+            "data": {
+              "minVolume": "Volume mínimo",
+              "maxVolume": "Volume máximo",
+              "zoneControl": "Ativar controlo de zonas"
+            },
+            "data_description": {
+              "minVolume": "Volume mínimo da luz.",
+              "maxVolume": "Volume máximo da luz.",
+              "zoneControl": "Ativar controlo de zonas."
+            }
+          },
+          "receiver_features": {
+            "name": "Outras funções do recetor",
+            "data": {
+              "audioInfo": "Mostrar informações de áudio",
+              "videoInfo": "Mostrar informações de vídeo",
+              "toneControls": "Controlar tom, graves e agudos",
+              "mcaccControl": "MCACC como TV separada",
+              "phaseControl": "Controlar fase",
+              "virtualSurroundBack": "Controlar Virtual Surround Back",
+              "channelLevels": "Controlar níveis dos canais",
+              "tunerControl": "Controlar sintonizador",
+              "hidden_mcacc_memories": "Ocultar memórias MCACC na TV"
+            },
+            "data_description": {
+              "audioInfo": "Mostrar informações de áudio. Criado apenas se o recetor responder por Telnet.",
+              "videoInfo": "Mostrar informações de vídeo. Criado apenas se o recetor responder por Telnet.",
+              "toneControls": "Controlar tom, graves e agudos. Criado apenas se o recetor responder por Telnet.",
+              "mcaccControl": "Cria uma TV HomeKit separada com as memórias MCACC de 1 a 6 como canais selecionáveis. Nenhuma TV adicional aparece no Home Assistant.",
+              "phaseControl": "TV separada com canais Off, On e Full Band.",
+              "virtualSurroundBack": "Controlar Virtual Surround Back. Criado apenas se o recetor responder por Telnet.",
+              "channelLevels": "Controlar níveis dos canais. Criado apenas se o recetor responder por Telnet.",
+              "tunerControl": "Controlar sintonizador. Criado apenas se o recetor responder por Telnet.",
+              "hidden_mcacc_memories": "Selecione as memórias MCACC a ocultar na TV."
+            }
+          },
+          "connection": {
+            "name": "Ligação",
+            "data": {
+              "telnetSwitch": "Criar interruptor Telnet",
+              "maxReconnectAttempts": "Máximo de tentativas de reconexão",
+              "maxReconnectAttemptsBeforeDiscover": "Redescobrir após estas falhas",
+              "sendKeepAliveTimeoutMinutes": "Manter ligação após desligar (minutos)",
+              "telnetSwitchInHa": "Interruptor da ligação Telnet no Home Assistant"
+            },
+            "data_description": {
+              "telnetSwitch": "Criar interruptor Telnet.",
+              "maxReconnectAttempts": "Máximo de tentativas de reconexão.",
+              "maxReconnectAttemptsBeforeDiscover": "Redescobrir após estas falhas.",
+              "sendKeepAliveTimeoutMinutes": "Manter ligação após desligar (minutos).",
+              "telnetSwitchInHa": "Ativado: o interruptor da ligação Telnet aparece no Home Assistant. Desativado: aparece apenas na bridge Pioneer HomeKit partilhada."
+            }
+          },
+          "input_names": {
+            "name": "Renomear entradas",
+            "data": {
+              "input_name_01": "Renomear a entrada no recetor 01",
+              "input_name_02": "Renomear a entrada no recetor 02",
+              "input_name_03": "Renomear a entrada no recetor 03",
+              "input_name_04": "Renomear a entrada no recetor 04",
+              "input_name_05": "Renomear a entrada no recetor 05",
+              "input_name_06": "Renomear a entrada no recetor 06",
+              "input_name_07": "Renomear a entrada no recetor 07",
+              "input_name_08": "Renomear a entrada no recetor 08",
+              "input_name_09": "Renomear a entrada no recetor 09",
+              "input_name_10": "Renomear a entrada no recetor 10",
+              "input_name_11": "Renomear a entrada no recetor 11",
+              "input_name_12": "Renomear a entrada no recetor 12",
+              "input_name_13": "Renomear a entrada no recetor 13",
+              "input_name_14": "Renomear a entrada no recetor 14",
+              "input_name_15": "Renomear a entrada no recetor 15",
+              "input_name_16": "Renomear a entrada no recetor 16",
+              "input_name_17": "Renomear a entrada no recetor 17",
+              "input_name_18": "Renomear a entrada no recetor 18",
+              "input_name_19": "Renomear a entrada no recetor 19",
+              "input_name_20": "Renomear a entrada no recetor 20",
+              "input_name_21": "Renomear a entrada no recetor 21",
+              "input_name_22": "Renomear a entrada no recetor 22",
+              "input_name_23": "Renomear a entrada no recetor 23",
+              "input_name_24": "Renomear a entrada no recetor 24",
+              "input_name_25": "Renomear a entrada no recetor 25",
+              "input_name_26": "Renomear a entrada no recetor 26",
+              "input_name_27": "Renomear a entrada no recetor 27",
+              "input_name_28": "Renomear a entrada no recetor 28",
+              "input_name_29": "Renomear a entrada no recetor 29",
+              "input_name_30": "Renomear a entrada no recetor 30",
+              "input_name_31": "Renomear a entrada no recetor 31",
+              "input_name_32": "Renomear a entrada no recetor 32",
+              "input_name_33": "Renomear a entrada no recetor 33",
+              "input_name_34": "Renomear a entrada no recetor 34",
+              "input_name_35": "Renomear a entrada no recetor 35",
+              "input_name_36": "Renomear a entrada no recetor 36",
+              "input_name_37": "Renomear a entrada no recetor 37",
+              "input_name_38": "Renomear a entrada no recetor 38",
+              "input_name_39": "Renomear a entrada no recetor 39",
+              "input_name_40": "Renomear a entrada no recetor 40",
+              "input_name_41": "Renomear a entrada no recetor 41",
+              "input_name_42": "Renomear a entrada no recetor 42",
+              "input_name_43": "Renomear a entrada no recetor 43",
+              "input_name_44": "Renomear a entrada no recetor 44",
+              "input_name_45": "Renomear a entrada no recetor 45",
+              "input_name_46": "Renomear a entrada no recetor 46",
+              "input_name_47": "Renomear a entrada no recetor 47",
+              "input_name_48": "Renomear a entrada no recetor 48",
+              "input_name_49": "Renomear a entrada no recetor 49",
+              "input_name_50": "Renomear a entrada no recetor 50",
+              "input_name_51": "Renomear a entrada no recetor 51",
+              "input_name_52": "Renomear a entrada no recetor 52",
+              "input_name_53": "Renomear a entrada no recetor 53",
+              "input_name_54": "Renomear a entrada no recetor 54",
+              "input_name_55": "Renomear a entrada no recetor 55",
+              "input_name_56": "Renomear a entrada no recetor 56",
+              "input_name_57": "Renomear a entrada no recetor 57",
+              "input_name_58": "Renomear a entrada no recetor 58",
+              "input_name_59": "Renomear a entrada no recetor 59",
+              "input_name_60": "Renomear a entrada no recetor 60"
+            },
+            "data_description": {
+              "input_name_01": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_02": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_03": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_04": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_05": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_06": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_07": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_08": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_09": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_10": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_11": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_12": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_13": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_14": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_15": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_16": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_17": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_18": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_19": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_20": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_21": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_22": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_23": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_24": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_25": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_26": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_27": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_28": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_29": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_30": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_31": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_32": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_33": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_34": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_35": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_36": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_37": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_38": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_39": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_40": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_41": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_42": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_43": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_44": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_45": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_46": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_47": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_48": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_49": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_50": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_51": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_52": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_53": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_54": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_55": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_56": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_57": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_58": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_59": "Renomear a entrada no recetor (máximo de 14 caracteres).",
+              "input_name_60": "Renomear a entrada no recetor (máximo de 14 caracteres)."
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Pioneer Telnet AVR"
+}

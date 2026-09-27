@@ -1,0 +1,293 @@
+{
+  "config": {
+    "error": {
+      "cannot_connect": "Porta Telnet del ricevitore non raggiungibile."
+    },
+    "step": {
+      "choose": {
+        "title": "Seleziona ricevitore Pioneer",
+        "data": {
+          "receiver": "Receiver",
+          "showReceiverNameInSwitches": "Mostra il nome del ricevitore nelle entità"
+        },
+        "description": "Seleziona il ricevitore da aggiungere.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Include il nome del ricevitore nei nomi di tutte le sue entità. Per esempio «Apple TV VSX-923» invece di «Apple TV». Altrimenti i nomi restano brevi; il dispositivo ricevitore mantiene il proprio nome."
+        }
+      },
+      "manual": {
+        "title": "Aggiungi ricevitore manualmente",
+        "data": {
+          "host": "Host",
+          "port": "Telnet port",
+          "showReceiverNameInSwitches": "Mostra il nome del ricevitore nelle entità"
+        },
+        "description": "Inserisci l’indirizzo di un altro ricevitore e scegli se mostrarne il nome negli interruttori.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Include il nome del ricevitore nei nomi di tutte le sue entità. Per esempio «Apple TV VSX-923» invece di «Apple TV». Altrimenti i nomi restano brevi; il dispositivo ricevitore mantiene il proprio nome."
+        }
+      },
+      "discovery_confirm": {
+        "title": "Aggiungere {name}?",
+        "description": "Scegli se mostrare il nome del ricevitore negli interruttori prima di aggiungerlo.",
+        "data": {
+          "showReceiverNameInSwitches": "Mostra il nome del ricevitore nelle entità"
+        },
+        "data_description": {
+          "showReceiverNameInSwitches": "Include il nome del ricevitore nei nomi di tutte le sue entità. Per esempio «Apple TV VSX-923» invece di «Apple TV». Altrimenti i nomi restano brevi; il dispositivo ricevitore mantiene il proprio nome."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Ricevitore già configurato.",
+      "cannot_connect": "Porta Telnet del ricevitore non raggiungibile."
+    }
+  },
+  "options": {
+    "error": {
+      "too_many_inputs": "Seleziona al massimo cinque ingressi.",
+      "invalid_listening_mode": "L’ID della modalità deve contenere quattro cifre."
+    },
+    "step": {
+      "init": {
+        "title": "Opzioni ricevitore Pioneer",
+        "sections": {
+          "inputs": {
+            "name": "Ingressi",
+            "data": {
+              "input_switches": "Ingressi come interruttori separati",
+              "toggleOffIfActive": "Spegni premendo l’ingresso attivo",
+              "hidden_zone_inputs": "Nascondi gli ingressi dalle TV delle zone"
+            },
+            "data_description": {
+              "input_switches": "Fino a cinque ingressi, ciascuno come interruttore.",
+              "toggleOffIfActive": "Premere di nuovo l’ingresso attivo spegne il ricevitore (solo per gli ingressi creati come interruttori separati).",
+              "hidden_zone_inputs": "Seleziona gli ingressi da nascondere dalle TV delle zone. Il ricevitore principale mantiene tutti gli ingressi."
+            }
+          },
+          "listening_modes": {
+            "name": "Modalità di ascolto",
+            "data": {
+              "toggleListeningMode": "Crea interruttore modalità di ascolto",
+              "toggleListeningModeLink": "Raggruppa modalità di ascolto col ricevitore",
+              "listeningMode": "Modalità di ascolto principale",
+              "listeningModeOther": "Modalità di ascolto alternativa",
+              "listeningModeFallback": "Modalità di ascolto di riserva",
+              "listelingmodesAsTV": "TV aggiuntiva per le modalità di ascolto",
+              "onlyLearnedListeningModes": "Limita alle modalità apprese dopo dieci conferme",
+              "resetListeningModes": "Reimposta i modi al salvataggio",
+              "excluded_listening_modes": "Escludi modalità di ascolto"
+            },
+            "data_description": {
+              "toggleListeningMode": "Crea interruttore modalità di ascolto.",
+              "toggleListeningModeLink": "Collega l’interruttore della modalità di ascolto al TV principale del bridge Pioneer, se attivo.",
+              "listeningMode": "Modalità di ascolto principale.",
+              "listeningModeOther": "Modalità di ascolto alternativa.",
+              "listeningModeFallback": "Modalità di ascolto di riserva.",
+              "listelingmodesAsTV": "Crea una TV HomeKit separata per le modalità di ascolto. Seleziona i canali in Casa; in Home Assistant non compare alcuna TV aggiuntiva.",
+              "onlyLearnedListeningModes": "Dopo dieci modalità confermate, questa opzione limita la modalità audio del ricevitore in Home Assistant alle modalità confermate e predefinite. La TV HomeKit mantiene tutte le modalità per la scelta manuale dei canali. Salva e riapri le impostazioni per aggiornare i tre elenchi.",
+              "resetListeningModes": "Cancella una volta le modalità apprese automaticamente al salvataggio. La visibilità manuale dei canali HomeKit resta invariata.",
+              "excluded_listening_modes": "Una modalità viene esclusa automaticamente dopo due risposte E06. Puoi anche escluderla qui o ripristinarla deselezionandola. Scompare da Home Assistant; il canale resta in Apple Home, ma nascosto."
+            }
+          },
+          "homekit": {
+            "name": "HomeKit ed entità",
+            "data": {
+              "homekitLinkedVolume": "Crea TV HomeKit con luce del volume collegata",
+              "volumeAsLight": "Mostra anche il volume come luce",
+              "additionalEntitiesInHa": "Mostra le entità aggiuntive in Home Assistant e usa HomeKit Bridge"
+            },
+            "data_description": {
+              "homekitLinkedVolume": "Crea un TV con luce del volume integrata nel bridge Pioneer condiviso. Viene mostrato un solo codice di abbinamento per il bridge.",
+              "volumeAsLight": "Crea una luce del volume separata. La nuova casella determina se appare in Home Assistant o nel bridge Pioneer condiviso.",
+              "additionalEntitiesInHa": "Gli interruttori degli ingressi, la luce del volume separata e l’interruttore della modalità di ascolto appaiono in Home Assistant e possono essere pubblicati tramite HomeKit Bridge. Altrimenti appaiono solo nel bridge Pioneer condiviso."
+            }
+          },
+          "volume_zones": {
+            "name": "Volume e zone",
+            "data": {
+              "minVolume": "Volume minimo",
+              "maxVolume": "Volume massimo",
+              "zoneControl": "Attiva controllo zone"
+            },
+            "data_description": {
+              "minVolume": "Volume minimo della luce.",
+              "maxVolume": "Volume massimo della luce.",
+              "zoneControl": "Attiva controllo zone."
+            }
+          },
+          "receiver_features": {
+            "name": "Altre funzioni del ricevitore",
+            "data": {
+              "audioInfo": "Mostra informazioni audio",
+              "videoInfo": "Mostra informazioni video",
+              "toneControls": "Controlla tono, bassi e alti",
+              "mcaccControl": "MCACC come TV separata",
+              "phaseControl": "Controlla fase",
+              "virtualSurroundBack": "Controlla Virtual Surround Back",
+              "channelLevels": "Controlla livelli dei canali",
+              "tunerControl": "Controlla sintonizzatore",
+              "hidden_mcacc_memories": "Nascondi le memorie MCACC dalla TV"
+            },
+            "data_description": {
+              "audioInfo": "Mostra informazioni audio. Creato solo se il ricevitore risponde tramite Telnet.",
+              "videoInfo": "Mostra informazioni video. Creato solo se il ricevitore risponde tramite Telnet.",
+              "toneControls": "Controlla tono, bassi e alti. Creato solo se il ricevitore risponde tramite Telnet.",
+              "mcaccControl": "Crea una TV HomeKit separata con le memorie MCACC da 1 a 6 come canali selezionabili. In Home Assistant non compare alcuna TV aggiuntiva.",
+              "phaseControl": "TV separata con canali Off, On e Full Band.",
+              "virtualSurroundBack": "Controlla Virtual Surround Back. Creato solo se il ricevitore risponde tramite Telnet.",
+              "channelLevels": "Controlla livelli dei canali. Creato solo se il ricevitore risponde tramite Telnet.",
+              "tunerControl": "Controlla sintonizzatore. Creato solo se il ricevitore risponde tramite Telnet.",
+              "hidden_mcacc_memories": "Seleziona le memorie MCACC da nascondere dalla TV."
+            }
+          },
+          "connection": {
+            "name": "Connessione",
+            "data": {
+              "telnetSwitch": "Crea interruttore Telnet",
+              "maxReconnectAttempts": "Tentativi massimi di riconnessione",
+              "maxReconnectAttemptsBeforeDiscover": "Riscopri dopo questi tentativi",
+              "sendKeepAliveTimeoutMinutes": "Mantieni connessione dopo spegnimento (minuti)",
+              "telnetSwitchInHa": "Interruttore connessione Telnet in Home Assistant"
+            },
+            "data_description": {
+              "telnetSwitch": "Crea interruttore Telnet.",
+              "maxReconnectAttempts": "Tentativi massimi di riconnessione.",
+              "maxReconnectAttemptsBeforeDiscover": "Riscopri dopo questi tentativi.",
+              "sendKeepAliveTimeoutMinutes": "Mantieni connessione dopo spegnimento (minuti).",
+              "telnetSwitchInHa": "Attivo: l’interruttore della connessione Telnet appare in Home Assistant. Disattivo: appare solo nel bridge Pioneer HomeKit condiviso."
+            }
+          },
+          "input_names": {
+            "name": "Rinomina ingressi",
+            "data": {
+              "input_name_01": "Rinomina l’ingresso sul ricevitore 01",
+              "input_name_02": "Rinomina l’ingresso sul ricevitore 02",
+              "input_name_03": "Rinomina l’ingresso sul ricevitore 03",
+              "input_name_04": "Rinomina l’ingresso sul ricevitore 04",
+              "input_name_05": "Rinomina l’ingresso sul ricevitore 05",
+              "input_name_06": "Rinomina l’ingresso sul ricevitore 06",
+              "input_name_07": "Rinomina l’ingresso sul ricevitore 07",
+              "input_name_08": "Rinomina l’ingresso sul ricevitore 08",
+              "input_name_09": "Rinomina l’ingresso sul ricevitore 09",
+              "input_name_10": "Rinomina l’ingresso sul ricevitore 10",
+              "input_name_11": "Rinomina l’ingresso sul ricevitore 11",
+              "input_name_12": "Rinomina l’ingresso sul ricevitore 12",
+              "input_name_13": "Rinomina l’ingresso sul ricevitore 13",
+              "input_name_14": "Rinomina l’ingresso sul ricevitore 14",
+              "input_name_15": "Rinomina l’ingresso sul ricevitore 15",
+              "input_name_16": "Rinomina l’ingresso sul ricevitore 16",
+              "input_name_17": "Rinomina l’ingresso sul ricevitore 17",
+              "input_name_18": "Rinomina l’ingresso sul ricevitore 18",
+              "input_name_19": "Rinomina l’ingresso sul ricevitore 19",
+              "input_name_20": "Rinomina l’ingresso sul ricevitore 20",
+              "input_name_21": "Rinomina l’ingresso sul ricevitore 21",
+              "input_name_22": "Rinomina l’ingresso sul ricevitore 22",
+              "input_name_23": "Rinomina l’ingresso sul ricevitore 23",
+              "input_name_24": "Rinomina l’ingresso sul ricevitore 24",
+              "input_name_25": "Rinomina l’ingresso sul ricevitore 25",
+              "input_name_26": "Rinomina l’ingresso sul ricevitore 26",
+              "input_name_27": "Rinomina l’ingresso sul ricevitore 27",
+              "input_name_28": "Rinomina l’ingresso sul ricevitore 28",
+              "input_name_29": "Rinomina l’ingresso sul ricevitore 29",
+              "input_name_30": "Rinomina l’ingresso sul ricevitore 30",
+              "input_name_31": "Rinomina l’ingresso sul ricevitore 31",
+              "input_name_32": "Rinomina l’ingresso sul ricevitore 32",
+              "input_name_33": "Rinomina l’ingresso sul ricevitore 33",
+              "input_name_34": "Rinomina l’ingresso sul ricevitore 34",
+              "input_name_35": "Rinomina l’ingresso sul ricevitore 35",
+              "input_name_36": "Rinomina l’ingresso sul ricevitore 36",
+              "input_name_37": "Rinomina l’ingresso sul ricevitore 37",
+              "input_name_38": "Rinomina l’ingresso sul ricevitore 38",
+              "input_name_39": "Rinomina l’ingresso sul ricevitore 39",
+              "input_name_40": "Rinomina l’ingresso sul ricevitore 40",
+              "input_name_41": "Rinomina l’ingresso sul ricevitore 41",
+              "input_name_42": "Rinomina l’ingresso sul ricevitore 42",
+              "input_name_43": "Rinomina l’ingresso sul ricevitore 43",
+              "input_name_44": "Rinomina l’ingresso sul ricevitore 44",
+              "input_name_45": "Rinomina l’ingresso sul ricevitore 45",
+              "input_name_46": "Rinomina l’ingresso sul ricevitore 46",
+              "input_name_47": "Rinomina l’ingresso sul ricevitore 47",
+              "input_name_48": "Rinomina l’ingresso sul ricevitore 48",
+              "input_name_49": "Rinomina l’ingresso sul ricevitore 49",
+              "input_name_50": "Rinomina l’ingresso sul ricevitore 50",
+              "input_name_51": "Rinomina l’ingresso sul ricevitore 51",
+              "input_name_52": "Rinomina l’ingresso sul ricevitore 52",
+              "input_name_53": "Rinomina l’ingresso sul ricevitore 53",
+              "input_name_54": "Rinomina l’ingresso sul ricevitore 54",
+              "input_name_55": "Rinomina l’ingresso sul ricevitore 55",
+              "input_name_56": "Rinomina l’ingresso sul ricevitore 56",
+              "input_name_57": "Rinomina l’ingresso sul ricevitore 57",
+              "input_name_58": "Rinomina l’ingresso sul ricevitore 58",
+              "input_name_59": "Rinomina l’ingresso sul ricevitore 59",
+              "input_name_60": "Rinomina l’ingresso sul ricevitore 60"
+            },
+            "data_description": {
+              "input_name_01": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_02": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_03": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_04": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_05": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_06": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_07": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_08": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_09": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_10": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_11": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_12": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_13": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_14": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_15": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_16": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_17": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_18": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_19": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_20": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_21": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_22": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_23": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_24": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_25": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_26": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_27": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_28": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_29": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_30": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_31": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_32": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_33": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_34": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_35": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_36": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_37": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_38": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_39": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_40": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_41": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_42": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_43": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_44": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_45": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_46": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_47": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_48": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_49": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_50": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_51": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_52": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_53": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_54": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_55": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_56": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_57": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_58": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_59": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri).",
+              "input_name_60": "Rinomina l’ingresso sul ricevitore (massimo 14 caratteri)."
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Pioneer Telnet AVR"
+}

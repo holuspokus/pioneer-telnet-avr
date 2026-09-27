@@ -1,0 +1,293 @@
+{
+  "config": {
+    "error": {
+      "cannot_connect": "The receiver's Telnet port could not be reached"
+    },
+    "step": {
+      "choose": {
+        "title": "Choose Pioneer receiver",
+        "data": {
+          "receiver": "Receiver",
+          "showReceiverNameInSwitches": "Show receiver name in entity names"
+        },
+        "description": "Choose the receiver to add.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Include the receiver name in the names of all its entities. For example, “Apple TV VSX-923” instead of “Apple TV”. Without this option, entity names stay short; the receiver device keeps its name."
+        }
+      },
+      "manual": {
+        "title": "Add receiver manually",
+        "data": {
+          "host": "Host",
+          "port": "Telnet port",
+          "showReceiverNameInSwitches": "Show receiver name in entity names"
+        },
+        "description": "Enter the address of another receiver. You can also choose whether its name appears in switch names.",
+        "data_description": {
+          "showReceiverNameInSwitches": "Include the receiver name in the names of all its entities. For example, “Apple TV VSX-923” instead of “Apple TV”. Without this option, entity names stay short; the receiver device keeps its name."
+        }
+      },
+      "discovery_confirm": {
+        "title": "Add {name}?",
+        "description": "Choose whether the receiver name appears in switch names before adding it.",
+        "data": {
+          "showReceiverNameInSwitches": "Show receiver name in entity names"
+        },
+        "data_description": {
+          "showReceiverNameInSwitches": "Include the receiver name in the names of all its entities. For example, “Apple TV VSX-923” instead of “Apple TV”. Without this option, entity names stay short; the receiver device keeps its name."
+        }
+      }
+    },
+    "abort": {
+      "already_configured": "Receiver is already configured",
+      "cannot_connect": "The receiver's Telnet port could not be reached"
+    }
+  },
+  "options": {
+    "error": {
+      "too_many_inputs": "Select at most five input switches",
+      "invalid_listening_mode": "Enter a listening mode ID with exactly four digits"
+    },
+    "step": {
+      "init": {
+        "title": "Pioneer receiver options",
+        "sections": {
+          "inputs": {
+            "name": "Inputs",
+            "data": {
+              "input_switches": "Inputs as separate switches (up to 5)",
+              "toggleOffIfActive": "Pressing the active input switch turns the receiver off",
+              "hidden_zone_inputs": "Hide inputs from zone TVs"
+            },
+            "data_description": {
+              "input_switches": "Choose up to five inputs to display as separate switches.",
+              "toggleOffIfActive": "Pressing an already active input turns the receiver off (only for inputs created as separate switches).",
+              "hidden_zone_inputs": "Select inputs to omit from zone TVs. The main receiver keeps all inputs."
+            }
+          },
+          "listening_modes": {
+            "name": "Listening modes",
+            "data": {
+              "toggleListeningMode": "Create listening mode switch",
+              "toggleListeningModeLink": "Group listening mode switch with receiver",
+              "listeningMode": "Primary listening mode ID",
+              "listeningModeOther": "Alternative listening mode ID",
+              "listeningModeFallback": "Fallback listening mode ID",
+              "listelingmodesAsTV": "Additional TV entity with listening modes as inputs",
+              "onlyLearnedListeningModes": "Offer learned listening modes after ten are confirmed",
+              "resetListeningModes": "Reset listening-mode list when saving",
+              "excluded_listening_modes": "Exclude listening modes"
+            },
+            "data_description": {
+              "toggleListeningMode": "Create the additional Audio switch for toggling between listening modes.",
+              "toggleListeningModeLink": "Links the listening mode switch to the main TV in the Pioneer bridge when the TV is enabled and the additional entities are not shown in Home Assistant.",
+              "listeningMode": "Choose the primary listening mode (default 0013). With fewer than ten learned modes, all known modes are offered; some may not work on this receiver.",
+              "listeningModeOther": "Choose the alternate listening mode (default 0112). With fewer than ten learned modes, all known modes are offered.",
+              "listeningModeFallback": "Choose the fallback mode (default 0101). With fewer than ten learned modes, all known modes are offered.",
+              "listelingmodesAsTV": "Creates a separate HomeKit TV for listening modes. Select its channels in Apple Home; no additional TV appears in Home Assistant.",
+              "onlyLearnedListeningModes": "After ten confirmed modes, this option limits the receiver sound mode in Home Assistant to confirmed modes and defaults. The HomeKit TV still offers all modes for manual channel selection. Save and reopen settings to refresh the three selectors.",
+              "resetListeningModes": "Clears automatically learned modes once when saved. Manual HomeKit channel visibility is preserved.",
+              "excluded_listening_modes": "A mode is excluded automatically after two E06 responses. You can also exclude modes here or clear their selection to restore them. Excluded modes are omitted in Home Assistant; their Apple Home channels remain available but hidden."
+            }
+          },
+          "homekit": {
+            "name": "HomeKit and entities",
+            "data": {
+              "homekitLinkedVolume": "Create HomeKit TV with linked volume light",
+              "volumeAsLight": "Also expose volume as a light",
+              "additionalEntitiesInHa": "Show additional entities in Home Assistant and use HomeKit Bridge"
+            },
+            "data_description": {
+              "homekitLinkedVolume": "Creates a TV with an integrated volume light in the shared Pioneer bridge. Its QR code appears in a notification. Exclude the normal receiver media player from HA HomeKit Bridge to prevent a duplicate.",
+              "volumeAsLight": "Creates a standalone volume light. The new checkbox determines whether it appears in Home Assistant or directly in the shared Pioneer bridge.",
+              "additionalEntitiesInHa": "Separate input switches, the standalone volume light, and the listening mode switch appear in Home Assistant and can be exposed through HomeKit Bridge. When disabled, they appear only in the shared Pioneer HomeKit bridge."
+            }
+          },
+          "volume_zones": {
+            "name": "Volume and zones",
+            "data": {
+              "minVolume": "Minimum volume",
+              "maxVolume": "Maximum volume",
+              "zoneControl": "Enable zone controls"
+            },
+            "data_description": {
+              "minVolume": "Lower limit for the separate volume light (0–100); its slider maps this value to 0%.",
+              "maxVolume": "Upper limit for the separate volume light (0–100); its slider maps this value to 100%.",
+              "zoneControl": "Probe zones 2 and 3. Supported zones appear as a separate TV entity, power switch, and volume light."
+            }
+          },
+          "receiver_features": {
+            "name": "Other receiver features",
+            "data": {
+              "audioInfo": "Show audio information",
+              "videoInfo": "Show video information",
+              "toneControls": "Control tone, bass and treble",
+              "mcaccControl": "MCACC as a separate TV device",
+              "phaseControl": "Control phase",
+              "virtualSurroundBack": "Control Virtual Surround Back",
+              "channelLevels": "Control channel levels",
+              "tunerControl": "Control tuner",
+              "hidden_mcacc_memories": "Hide MCACC memories from TV"
+            },
+            "data_description": {
+              "audioInfo": "Read audio status with ?AST over Telnet.",
+              "videoInfo": "Read video status with ?VST over Telnet.",
+              "toneControls": "Create a tone switch and bass/treble sliders when supported.",
+              "mcaccControl": "Creates a separate HomeKit TV with MCACC memories 1 through 6 as selectable channels. No additional TV appears in Home Assistant.",
+              "phaseControl": "Create a separate TV device with Off, On and Full Band as channels when supported.",
+              "virtualSurroundBack": "Create a switch when ?VSB is supported.",
+              "channelLevels": "Show only speaker channels that reply to their level query.",
+              "tunerControl": "Frequency and preset plus band, class and up/down buttons when supported.",
+              "hidden_mcacc_memories": "Select MCACC memories to omit from the TV."
+            }
+          },
+          "connection": {
+            "name": "Connection",
+            "data": {
+              "telnetSwitch": "Create Telnet connection switch",
+              "maxReconnectAttempts": "Maximum reconnection attempts",
+              "maxReconnectAttemptsBeforeDiscover": "Rediscover after this many reconnection attempts",
+              "sendKeepAliveTimeoutMinutes": "Keepalive period after switching off (minutes)",
+              "telnetSwitchInHa": "Telnet connection switch in Home Assistant"
+            },
+            "data_description": {
+              "telnetSwitch": "Create a switch for the Telnet connection. After the receiver is turned off, the connection stays open for the period specified directly below.",
+              "maxReconnectAttempts": "Maximum number of connection attempts before giving up.",
+              "maxReconnectAttemptsBeforeDiscover": "Search for the receiver again after this many failed connection attempts.",
+              "sendKeepAliveTimeoutMinutes": "How long the Telnet connection stays active after the receiver is switched off, in minutes.",
+              "telnetSwitchInHa": "Enabled: Show the Telnet connection switch in Home Assistant. Disabled: Show it only in the shared Pioneer HomeKit bridge."
+            }
+          },
+          "input_names": {
+            "name": "Rename inputs",
+            "data": {
+              "input_name_01": "Input 01 name",
+              "input_name_02": "Input 02 name",
+              "input_name_03": "Input 03 name",
+              "input_name_04": "Input 04 name",
+              "input_name_05": "Input 05 name",
+              "input_name_06": "Input 06 name",
+              "input_name_07": "Input 07 name",
+              "input_name_08": "Input 08 name",
+              "input_name_09": "Input 09 name",
+              "input_name_10": "Input 10 name",
+              "input_name_11": "Input 11 name",
+              "input_name_12": "Input 12 name",
+              "input_name_13": "Input 13 name",
+              "input_name_14": "Input 14 name",
+              "input_name_15": "Input 15 name",
+              "input_name_16": "Input 16 name",
+              "input_name_17": "Input 17 name",
+              "input_name_18": "Input 18 name",
+              "input_name_19": "Input 19 name",
+              "input_name_20": "Input 20 name",
+              "input_name_21": "Input 21 name",
+              "input_name_22": "Input 22 name",
+              "input_name_23": "Input 23 name",
+              "input_name_24": "Input 24 name",
+              "input_name_25": "Input 25 name",
+              "input_name_26": "Input 26 name",
+              "input_name_27": "Input 27 name",
+              "input_name_28": "Input 28 name",
+              "input_name_29": "Input 29 name",
+              "input_name_30": "Input 30 name",
+              "input_name_31": "Input 31 name",
+              "input_name_32": "Input 32 name",
+              "input_name_33": "Input 33 name",
+              "input_name_34": "Input 34 name",
+              "input_name_35": "Input 35 name",
+              "input_name_36": "Input 36 name",
+              "input_name_37": "Input 37 name",
+              "input_name_38": "Input 38 name",
+              "input_name_39": "Input 39 name",
+              "input_name_40": "Input 40 name",
+              "input_name_41": "Input 41 name",
+              "input_name_42": "Input 42 name",
+              "input_name_43": "Input 43 name",
+              "input_name_44": "Input 44 name",
+              "input_name_45": "Input 45 name",
+              "input_name_46": "Input 46 name",
+              "input_name_47": "Input 47 name",
+              "input_name_48": "Input 48 name",
+              "input_name_49": "Input 49 name",
+              "input_name_50": "Input 50 name",
+              "input_name_51": "Input 51 name",
+              "input_name_52": "Input 52 name",
+              "input_name_53": "Input 53 name",
+              "input_name_54": "Input 54 name",
+              "input_name_55": "Input 55 name",
+              "input_name_56": "Input 56 name",
+              "input_name_57": "Input 57 name",
+              "input_name_58": "Input 58 name",
+              "input_name_59": "Input 59 name",
+              "input_name_60": "Input 60 name"
+            },
+            "data_description": {
+              "input_name_01": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_02": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_03": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_04": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_05": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_06": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_07": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_08": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_09": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_10": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_11": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_12": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_13": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_14": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_15": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_16": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_17": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_18": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_19": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_20": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_21": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_22": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_23": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_24": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_25": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_26": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_27": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_28": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_29": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_30": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_31": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_32": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_33": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_34": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_35": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_36": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_37": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_38": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_39": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_40": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_41": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_42": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_43": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_44": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_45": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_46": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_47": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_48": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_49": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_50": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_51": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_52": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_53": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_54": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_55": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_56": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_57": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_58": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_59": "Rename the input on the receiver (up to 14 characters).",
+              "input_name_60": "Rename the input on the receiver (up to 14 characters)."
+            }
+          }
+        }
+      }
+    }
+  },
+  "title": "Pioneer Telnet AVR"
+}
