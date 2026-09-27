@@ -24,7 +24,7 @@
     },
     {
       "type": "_raop._tcp.local.",
-      "name": "*@VSX-*"
+      "name": "*@vsx-*"
     }
   ],
   "codeowners": []
